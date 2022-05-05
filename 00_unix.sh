@@ -8,3 +8,9 @@ cat testfile | tr -cs 'a-zA-Z' '\n' | tr A-Z a-z | sort | uniq -c | sort -rn | s
 (head -n2; tail -n2) < testfile
 # 去除文件第一行，输出所有
 tail -n +2 testfile
+# les命令非常有用
+less    
+g 移动到首行
+G 移动到末行
+/ 向后匹配查询
+? 向前匹配查询
