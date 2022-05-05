@@ -21,9 +21,6 @@ cut -f 2 testfile
 awk -F " " '{print $2}' testfile
 
 
-<font style="color: red;">hello world</font>
-
-
 ## 文件整体操作
 #### 统计文件中行数
 wc -l
