@@ -51,6 +51,24 @@ grep -v "^#" Sars_cov_2.gtf | cut -f3 | sort | uniq -c | sort -rn
 Without having to load data into a program like R or Excel, we can quickly calculate
 summary statistics about our plain-text data files.
 
+#### awk进行文本文件的处理,模式匹配的条件下执行动作
+awk pattern { action } testfile
+#### awk输出符合pattern的records
+awk pattern testfile
+#### 输出位于chr1上面且碱基个数大于10的records
+awk "$1 ~ /chr1/ && $3-S2 > 10" testfile
+#### awk直接对records进行操作
+awk {action} testfile
+#### 输出位于chr2或chr3上的records，并且计算该records上碱基的数目
+awk "$1 ~ /chr2|chr3/" {print $0 "\t" $3-$2} testfile
+#### 将csv文件转换成tab分隔文件
+awk -F"," -v OFS="\t" {print $1,$2,$3,$4} testfile.csv
+#### 使用NR（number of field）选取特定行的内容
+awk "NR >=2 && NR <= 5" testfile
+#### gtf文件转化为bed文件
+awk '!/^#/ { print $1 "\t" $4-1 "\t" $5 }' testfile
+#### awk还有很多自带的函数功能，可以慢慢研究
+
 
 
 
@@ -84,5 +102,12 @@ rename 's/abc/def/' *
 brew update-reset
 brew --version
 brew install rename
-m
 
+
+
+
+## 文件间操作
+#### join函数，将两个不同的文件按照相同的元素进行拼接，拼接之前必须进行分别排序
+sort -k1,1 testfile1
+sort -k1,1 testfile2
+join -1 1 -2 1 testfile1 testfile2
