@@ -10,3 +10,6 @@ Download saccharomyces_cerevisiae genomic fasta files from  http://ftp.ensembl.o
 ### 20220505 
 
 Record Everyday Using Unix Script.  Record them in unix.sh
+
+### 20220506
+To learn bioawk
