@@ -35,6 +35,19 @@ grep -o -E "as|the" testfile
 grep -E -o 'gene_id "(\w+)"' testfile
 #### 根据上面的命令，管道连接几个命令可以提取gtf文件中所有基因的名称
 grep -E -o 'gene_id "(\w+)"' Sars_cov_2.ASM985889v3.101.gtf | cut -f2 -d' ' | sort | uniq | sed 's/"//g'
+#### 对列表文件按照第一列，第二列进行排序sort
+sort -k1,1 -k2,2 testfile
+#### 对列表文件按照第一列排序，第二列按照数字排序
+sort -k1,1 -k2,2n testfile
+#### 对上述排序结果进行倒序输出
+sort -k1,1 -k2,2n -r testfile
+#### 仅对排序后的第二列结果进行倒序输出
+sort -k1,1 -k2,2nr testfile
+
+
+
+
+
 
 
 ## 文件整体操作
@@ -47,20 +60,20 @@ awk -F "\t" '{print NF; exit}' testfile
 #### 统计文件中符合条件的列数
 grep -v "^#" testfile | awk -F "\t" '{print NF; exit}'
 #### 压缩文件的操作
- 1、*.tar 用 tar –xvf 解压 
- 
- 2、*.gz 用 gzip -d或者gunzip 解压 
- 
- 3、*.tar.gz和*.tgz 用 tar –xzf 解压 
- 
- 4、*.bz2 用 bzip2 -d或者用bunzip2 解压 
- 
- 5、*.tar.bz2用tar –xjf 解压 
- 
- 6、*.Z 用 uncompress 解压 
- 
- 7、*.tar.Z 用tar –xZf 解压 
- 
- 8、*.rar 用 unrar e解压 
- 
- 9、*.zip 用 unzip 解压
+ 1、*.tar 用 tar –xvf解压 
+ 2、*.gz 用 gzip -d或者gunzip解压 
+ 3、*.tar.gz和*.tgz 用 tar –xzf解压 
+ 4、*.bz2 用 bzip2 -d或者用bunzip2解压 
+ 5、*.tar.bz2用tar –xjf解压 
+ 6、*.Z 用 uncompress解压 
+ 7、*.tar.Z 用tar –xZf解压 
+ 8、*.rar 用 unrar解压
+ 9、*.zip 用 unzip解压
+#### 批量修改文件名称1 rename,类似于perl脚本的方式
+rename 's/abc/def/' *
+###### 使用rename命令之前在macOS安装该命令
+brew update-reset
+brew --version
+brew install rename
+m
+
