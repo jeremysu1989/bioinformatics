@@ -29,7 +29,12 @@ grep -w "green" testfile
 grep -w -E "as|be|the" testfile
 #### 添加-c可以统计实现匹配的行数
 grep -c -w -E "as|the" testfile
-
+#### -o只输出匹配的字符
+grep -o -E "as|the" testfile
+#### \w 匹配字母或数字或下划线或汉字 等价于 '[^A-Za-z0-9]',“+”元字符规定其前导字符必须在目标对象中连续出现一次或多次
+grep -E -o 'gene_id "(\w+)"' testfile
+#### 根据上面的命令，管道连接几个命令可以提取gtf文件中所有基因的名称
+grep -E -o 'gene_id "(\w+)"' Sars_cov_2.ASM985889v3.101.gtf | cut -f2 -d' ' | sort | uniq | sed 's/"//g'
 
 
 ## 文件整体操作
@@ -41,3 +46,13 @@ grep -c "[^ //n//t]" testfile
 awk -F "\t" '{print NF; exit}' testfile
 #### 统计文件中符合条件的列数
 grep -v "^#" testfile | awk -F "\t" '{print NF; exit}'
+#### 压缩文件的操作
+1、*.tar 用 tar –xvf 解压 
+2、*.gz 用 gzip -d或者gunzip 解压 
+3、*.tar.gz和*.tgz 用 tar –xzf 解压 
+4、*.bz2 用 bzip2 -d或者用bunzip2 解压 
+5、*.tar.bz2用tar –xjf 解压 
+6、*.Z 用 uncompress 解压 
+7、*.tar.Z 用tar –xZf 解压 
+8、*.rar 用 unrar e解压 
+9、*.zip 用 unzip 解压
