@@ -14,3 +14,11 @@ g 移动到首行
 G 移动到末行
 / 向后匹配查询
 ? 向前匹配查询
+# 统计文件中行数
+wc -l
+# 统计文件中非空行数,
+grep -c "[^ //n//t]" testfile
+# 统计文件的列数
+awk -F "\t" '{print NF; exit}' testfile
+# 统计文件中符合条件的列数
+grep -v "^#" testfile | awk -F "\t" '{print NF; exit}'
