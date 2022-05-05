@@ -43,6 +43,15 @@ sort -k1,1 -k2,2n testfile
 sort -k1,1 -k2,2n -r testfile
 #### 仅对排序后的第二列结果进行倒序输出
 sort -k1,1 -k2,2nr testfile
+#### 经常使用的组合
+sort | uniq   or  sort | uniq -c
+#### 查看gtf文件中基因组上各个基因原件的个数
+grep -v "^#" Sars_cov_2.gtf | cut -f3 | sort | uniq -c | sort -rn
+
+Without having to load data into a program like R or Excel, we can quickly calculate
+summary statistics about our plain-text data files.
+
+
 
 
 
