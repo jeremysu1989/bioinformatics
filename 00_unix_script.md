@@ -26,7 +26,9 @@ column -s "," -t testfile
 #### grep命令对搜索字符的精确匹配，按照单词进行匹配
 grep -w "green" testfile
 #### 可以通过添加正则表达的方式让搜索命令更强大
-grep -w -E "as|be|the"
+grep -w -E "as|be|the" testfile
+#### 添加-c可以统计实现匹配的行数
+grep -c -w -E "as|the" testfile
 
 
 
