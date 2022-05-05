@@ -19,6 +19,8 @@ G 移动到末行
 cut -f 2 testfile
 #### 对于空格分隔的文件，选择性的展示某一列
 awk -F " " '{print $2}' testfile
+
+
 <font style="color: red;">hello world</font>
 
 
