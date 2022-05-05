@@ -5,7 +5,9 @@ to generate the small scripts
 
 Finish the web crawler
 
-Download saccharomyces_cerevisiae genomic fasta files from  http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/ using CHECKSUM file
+Download saccharomyces_cerevisiae genomic fasta files from  http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/ using CHECKSUM file **haven't done**
+
+
 
 ### 20220505 
 
@@ -13,3 +15,4 @@ Record Everyday Using Unix Script.  Record them in unix.sh
 
 ### 20220506
 To learn bioawk
+To use for loop in shell
