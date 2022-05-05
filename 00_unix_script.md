@@ -1,4 +1,4 @@
-## 文件内容操作 <font style="color: red;">hello world</font>
+## 文件内容操作 
 #### 将所有小写字母转换为大写字母
 cat testfile | tr a-z A-Z
 #### -c 用字符串1中的字符集的补集替换字符串1； -s 删除重复的字符串； 用换行符替换转化后的第一个字符串，从而实现将有空格的文本分割成行
@@ -19,7 +19,7 @@ G 移动到末行
 cut -f 2 testfile
 #### 对于空格分隔的文件，选择性的展示某一列
 awk -F " " '{print $2}' testfile
-
+<font style="color: red;">hello world</font>
 
 
 ## 文件整体操作
