@@ -17,8 +17,17 @@ G 移动到末行
 ? 向前匹配查询
 #### 对于tab分隔的文件，选择性的展示某一列
 cut -f 2 testfile
+#### 使用cut命令，结合-d参数指明delimiter character可以进行分割,例如使用大写S作为分割的字符
+cut -dS -f3 testfile
 #### 对于空格分隔的文件，选择性的展示某一列
 awk -F " " '{print $2}' testfile
+#### 使用colomn命令实现文本文件的表格化展示，-s参数可以设定分隔字符
+column -s "," -t testfile
+#### grep命令对搜索字符的精确匹配，按照单词进行匹配
+grep -w "green" testfile
+#### 可以通过添加正则表达的方式让搜索命令更强大
+grep -w -E "as|be|the"
+
 
 
 ## 文件整体操作
