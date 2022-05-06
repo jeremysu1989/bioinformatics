@@ -139,7 +139,7 @@ for i in $(awk '{print $3}' testfile); do wget -bc -P /Users/scarecrow/Temp/test
 #### wget将下载信息写入文件,将下载记录写入文件，这种会让下载界面很清爽，没有特别多的wget-log文件,耗时3s
 for i in $(awk '{print $3}' test.txt); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
 
-for i in $(awk '{print $3}' CHECKSUMS); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
+for i in $(awk '{print $3}' CHECKSUMS); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done 
 
 
 
