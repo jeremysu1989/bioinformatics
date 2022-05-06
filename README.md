@@ -5,7 +5,9 @@ to generate the small scripts
 
 Finish the web crawler
 
-Download saccharomyces_cerevisiae genomic fasta files from  http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/ using CHECKSUM file **haven't done**
+Download saccharomyces_cerevisiae genomic fasta files from  http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/ using CHECKSUM file 
+
+for i in $(awk '{print $3}' CHECKSUMS); do wget -c  http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
 
 
 
