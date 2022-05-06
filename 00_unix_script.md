@@ -86,6 +86,20 @@ echo "chr1:28427874-28425431" | sed 's/[:-]/\t/g'
 echo "chr1:28427874-28425431" | sed 's/:/\t/' | sed 's/-/\t/'
 #### 或者
 echo "chr1:28427874-28425431" | tr ':-' '\t'
+#### 提取gtf文件中所有转录本的名称
+grep -v "^#" Mus_musculus.GRCm38.75_chr1.gtf | head -n 3 | sed -E -n 's/.*transcript_id "([^"]+)".*/\1/p'
+##### sed命令里面匹配的模式为transcript_id之前的任意多个任意字符，匹配transcript_id “，匹配大于等于一个非双引号字符，匹配”，匹配任意多个任意字符，然后输出匹配到的字符；-n参数使得sed不能输出任何行内容；-p参数确保只有匹配的行被输出
+#### 使用sed命令输出文件的特定行
+sed -n "20,50p" testfile
+#### subshell, 实现对gtf文件的排序
+(grep "^#" Sars_cov_2.gtf; grep -v "^#" Sars_cov_2.gtf | sort -k1,1 -k4,4n) > Sars_cov_2.sort.gtf
+
+
+
+
+
+
+
 
 
 
@@ -127,3 +141,7 @@ brew install rename
 sort -k1,1 testfile1
 sort -k1,1 testfile2
 join -1 1 -2 1 testfile1 testfile2
+#### 有名管道（FIFO）和无名管道（pipe）
+https://blog.csdn.net/qq_41945905/article/details/110489607?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-4.pc_relevant_antiscanv2&spm=1001.2101.3001.4242.3&utm_relevant_index=7
+
+https://blog.csdn.net/yxtxiaotian/article/details/69568774?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4.pc_relevant_antiscanv2&utm_relevant_index=9
