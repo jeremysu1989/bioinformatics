@@ -134,11 +134,12 @@ brew --version
 brew install rename
 #### wget下载单个文件至指定文件夹
 wget -p /Users/scarecrow/Temp/test/download -c website/filename
-#### wget批量下载多个文件至指定文件夹，并切-b让程序在后台运行,这个命令提高下载速度
+#### wget批量下载多个文件至指定文件夹，并切-b让程序在后台运行,这个命令提高下载速度（大约不到5s），如果没有-b参数，则wget会逐个文件进行解析，逐个下载，下载时间大约20分钟
 for i in $(awk '{print $3}' testfile); do wget -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
-#### wget将下载信息写入文件,将下载记录写入文件，这种会让下载界面很清爽，没有特别多的wget-log文件
+#### wget将下载信息写入文件,将下载记录写入文件，这种会让下载界面很清爽，没有特别多的wget-log文件,耗时3s
 for i in $(awk '{print $3}' test.txt); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
 
+for i in $(awk '{print $3}' CHECKSUMS); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done
 
 
 
