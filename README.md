@@ -16,6 +16,8 @@ for i in $(awk '{print $3}' CHECKSUMS); do wget -c  http://ftp.ensembl.org/pub/r
 Record Everyday Using Unix Script.  Record them in unix.sh
 
 ### 20220506
-To learn bioawk
+To learn bioawk ***haven't done***
 
 To use for loop in shell
+
+To check the completeness of all files downloaded from website, use shell script
