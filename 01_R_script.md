@@ -61,3 +61,27 @@ R’s basic data structures include the vector, list, matrix, data frame, and fa
 
 Objects may have attributes, such as name, dimension, and class.
 
+
+## reshape data
+
+#### dataframe slicing and dicing
+rm(list = ls())
+x <- sample(1:50, 300, replace = TRUE)
+y <- 3.2*x + rnorm(300,0,40)
+d <- data.frame(x=x, y=y)
+summary(d$x)
+summary(d$y)
+d$x >=48
+d[d$x >= 48,]
+d[d$x >=45 & d$y >=200,]
+d[d$x >=45 & d$y >=200,c("x")]
+d[d$x >=45 & d$y >=200,c("y")]
+d$x[d$y > 200]
+summary(d$x[d$y > 200])
+which(d$y > 200)
+which(d$x >=45 & d$y >=200)
+which.min(d$x)
+d[which.min(d$x),]
+which.max(d$y)
+d[which.max(d$y),]
+subset(d,d$x <= 2)
