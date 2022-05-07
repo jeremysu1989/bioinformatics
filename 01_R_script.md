@@ -120,7 +120,16 @@ ggplot(d) + geom_bar(aes(x=x))
 
 ggplot(d) + geom_bar(aes(x=x.binned, fill=x.binned))
 
+## Matching vectors and merging dataframes
 
+c(3, 4, -1) %in% c(1, 3, 4, 8)
+
+match(c("A", "C", "E", "A"), c("A", "B", "A", "E"))
+
+merge(x, y, by = intersect(names(x), names(y)),
+      by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
+      sort = TRUE, suffixes = c(".x",".y"), no.dups = TRUE,
+      incomparables = NULL, ...)
 
 
 
