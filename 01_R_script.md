@@ -190,12 +190,8 @@ ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
             #and warns us about it.
 
             if (any(is.na(x)) && warn) {
-
-
                   warning("removing some missing values!")
-
             }
-
             mean(x, na.rm=TRUE)
 
       }
