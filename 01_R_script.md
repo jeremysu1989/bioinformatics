@@ -161,8 +161,14 @@ adh$id2 <- NULL
 unlist(adh)
 
 ## lapply() and sapply()
+#### calculate the mean value of each vector in list
+ll <- list(a=rnorm(6, mean=1), b=rnorm(6, mean=4), c=rnorm(6, mean=6))
 
+ll_means <- numeric(length(ll))
 
+for (i in seq_along(ll)){
+  ll_means[i] <- mean(ll[[i]])
+}
 
 
 
