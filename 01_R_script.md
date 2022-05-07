@@ -11,3 +11,13 @@ R has 6 basic data types. (In addition to the five listed below, there is also r
 4 logical
 
 5 complex
+
+#### R provides many functions to examine features of vectors and other objects, for example
+
+class() - what kind of object is it (high-level)?
+
+typeof() - what is the object’s data type (low-level)?
+
+length() - how long is it? What about two dimensional objects?
+
+attributes() - does it have any metadata?
