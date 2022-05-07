@@ -176,11 +176,29 @@ ll_means <- lapply(ll,mean)
 
 typeof(ll_means)       #"list"
 
+#### specify additional argument
+ll_means <- lapply(ll, mean, na.rm=TRUE)
+
+#### Or use anonymous funciton
+ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
+
+#### write a more verbose function
+meanRemoveNAVerbose <- function(x, warn=TRUE) {
+      
+      #A function that removes missing values when calculating the mean
+      
+      #and warns us about it.
+
+      if (any(is.na(x)) && warn) {
 
 
+      warning("removing some missing values!")
 
+      }
 
+      mean(x, na.rm=TRUE)
 
+}
 
 
 
