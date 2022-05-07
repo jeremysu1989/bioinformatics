@@ -170,11 +170,11 @@ for (i in seq_along(ll)){
   ll_means[i] <- mean(ll[[i]])
 }
 
-typeof(ll_means) #"double"
+typeof(ll_means)       #"double"
 #### calculate the mean value of each vector in list with lapply()
 ll_means <- lapply(ll,mean)
 
-typeof(ll_means) #"list"
+typeof(ll_means)       #"list"
 
 
 
