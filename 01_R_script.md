@@ -1,6 +1,6 @@
 ## R basic
-#### Everything in R is an object
-R has 6 basic data types. (In addition to the five listed below, there is also raw which will not be discussed in this workshop.)
+### Everything in R is an object
+#### R has 6 basic data types. (In addition to the five listed below, there is also raw which will not be discussed in this workshop.)
 
 1 character
 
@@ -21,3 +21,15 @@ typeof() - what is the object’s data type (low-level)?
 length() - how long is it? What about two dimensional objects?
 
 attributes() - does it have any metadata?
+
+#### R has many data structures. These include
+
+atomic vector
+
+list
+
+matrix
+
+data frame
+
+factors
