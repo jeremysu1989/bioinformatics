@@ -64,6 +64,8 @@ Objects may have attributes, such as name, dimension, and class.
 
 ## reshape data
 
+tidyr
+
 ## dataframe slicing and dicing
 rm(list = ls())
 
@@ -130,6 +132,39 @@ merge(x, y, by = intersect(names(x), names(y)),
       by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
       sort = TRUE, suffixes = c(".x",".y"), no.dups = TRUE,
       incomparables = NULL, ...)
+
+## ggplot2 Facet
+
+https://ggplot2-book.org/facet.html
+
+http://www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels
+
+## List
+adh <- list(chr="2L", start=14615555L, end=14618902L, name="Adh")
+
+adh$chr
+
+adh[1]
+
+adh[[1]]
+
+adh['chr']
+
+adh[['chr']]
+
+adh$id <- "FBgn0000055"
+
+adh$id2 <- c("FBgn0000055","FBgn0000077")
+
+adh$id2 <- NULL
+
+unlist(adh)
+
+## lapply() and sapply()
+
+
+
+
 
 
 
