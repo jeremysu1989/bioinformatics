@@ -52,5 +52,12 @@ attributes (contain metadata)
 
 #### A data frame is a very important data type in R. It’s pretty much the de facto data structure for most tabular data and what we use for statistics.  A data frame is a special type of list where every element of the list has same length (i.e. data frame is a “rectangular” list).
 
+![image](https://user-images.githubusercontent.com/104820908/167233994-bfe7bbee-0ae4-4828-8baf-052e62c26a54.png)
 
+#### Key Points
+R’s basic data types are character, numeric, integer, complex, and logical.
+
+R’s basic data structures include the vector, list, matrix, data frame, and factors. Some of these structures require that all members be of the same data type (e.g. vectors, matrices) while others permit multiple data types (e.g. lists, data frames).
+
+Objects may have attributes, such as name, dimension, and class.
 
