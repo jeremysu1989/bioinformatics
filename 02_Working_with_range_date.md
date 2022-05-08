@@ -64,8 +64,14 @@ Bioconductor's core packages:
         width(x)
         end(x) <- end(x) + 4
         names(x)
-
-
+        range(x)
+We can subset IRanges just as we would any other R objects (vectors, dataframes, matrices), using either numeric, logical, or character (name) index.
+As with dataframes, indexing using logical vectors created by statements like width(x) > 8 is a powerful way to select the subset of ranges you’re interested in.
+        x[2:3]
+        start(x) < 5
+        x[start(x) < 5]
+        x[width(x) > 8]
+        x['a']
 
 
 
