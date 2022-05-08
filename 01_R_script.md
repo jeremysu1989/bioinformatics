@@ -192,6 +192,26 @@ ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
             mean(x, na.rm=TRUE)
       }
 
+#### Working with the Split-Apply-Combine Pattern
+
+There are a few other useful tricks to know about the split-apply-combine pattern
+built from split(), lapply(), and do.call() with rbind()
+#### Split
+d_split <- split(d$x,d$x.binned)
+
+str(d_split)
+#### Apply
+lapply(d_split,summary)
+#### Combine
+df1 <- do.call(cbind,lapply(d_split,summary))
+
+df2 <- do.call(rbind,lapply(d_split,summary))
+
+
+
+
+
+
 
 
 
