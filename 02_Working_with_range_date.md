@@ -124,19 +124,24 @@ Another class of useful range operations are analogous to set operations
 
 IRanges also has a group of set operation functions that act pairwise, taking two equal-length IRanges objects and working range-wise: psetdiff(), pintersect(), punion(), and pgap(). 
 
+#### Finding OVerlapping Ranges
+
+We’ll start with the basic task of finding overlaps between two sets of IRanges objects using the findOverlaps() function
+
+        qry <- IRanges(start=c(1, 26, 19, 11, 21, 7), end=c(16, 30, 19, 15, 24, 8),names=letters[1:6])
+        sbj <- IRanges(start=c(1, 19, 10), end=c(5, 29, 16), names=letters[24:26])
+        qry
+        sbj
+
+![image](https://user-images.githubusercontent.com/104820908/167299704-e389d3c5-de06-4826-8520-332d71ffcdd1.png)
+
+Using the IRanges qry and sbj, we can now find overlaps. Calling findOver laps(qry, sbj) returns an object with class Hits, which stores these overlaps:
+
+        hts <- findOverlaps(qry, sbj)
+        hts
 
 
-
-
-
-
-
-
-
-
-
-
-
+Thinking abstractly, overlaps represent a mapping between query and subject. Depending on how we find overlaps, each query can have many hits in different subjects. A single subject range will always be allowed to have many query hits.
 
 
 
