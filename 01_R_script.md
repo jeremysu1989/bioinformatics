@@ -211,10 +211,10 @@ df2 <- do.call(rbind,lapply(d_split,summary))
 dplyr has five basic functions for manipulating dataframes: arrange(), filter(),
 mutate(), select(), and summarize()
 
-#### working with string
+## working with string
 grep, grepl, regexpr, gregexpr, regexec and gregexec search for matches to argument pattern within each element of a character vector: they differ in the format of and amount of detail in the results.
 
-sub and gsub perform replacement of the first and all matches respectively.
+#### sub and gsub perform replacement of the first and all matches respectively.
 
 sub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
     fixed = FALSE, useBytes = FALSE)
@@ -228,7 +228,7 @@ sub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
       txt <- "a test of capitalizing"
       gsub("(\\w)(\\w*)", "\\U\\1\\L\\2", txt, perl=TRUE)
       gsub("\\b(\\w)",    "\\U\\1",       txt, perl=TRUE)
-    
+#### paste    
 paste (..., sep = " ", collapse = NULL, recycle0 = FALSE)
 
 paste0(...,            collapse = NULL, recycle0 = FALSE)
@@ -236,6 +236,42 @@ paste0(...,            collapse = NULL, recycle0 = FALSE)
     paste0(1:12, c("st", "nd", "rd", rep("th", 9)))
     paste(1:12, c("st", "nd", "rd", rep("th", 9)))
     
-    
+ #### strspilt  
+strsplit(x, split, fixed = FALSE, perl = FALSE, useBytes = FALSE)
+
+      leafy <- "gene=LEAFY;locus=2159208;gene_model=AT5G61850.1"
+      strsplit(leafy, ";")
+
+## Developing Workflows with R Scripts
+#### Control Flow: if, for, and while
+
+The basic syntax of if, for, and while are:
+
+      if (x == some_value) {
+            # do some stuff in here
+      } else {
+            # else is optional      
+      }
+      for (element in some_vector) {
+       # iteration happens here
+      }
+      while (something_is_true) {
+            # do some stuff
+      }
+ #### Working with R Scripts     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
