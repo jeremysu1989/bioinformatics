@@ -139,9 +139,35 @@ Using the IRanges qry and sbj, we can now find overlaps. Calling findOver laps(q
 
         hts <- findOverlaps(qry, sbj)
         hts
-
+![image](https://user-images.githubusercontent.com/104820908/167300016-2acc9848-46d2-4458-a560-f206a1d02ad4.png)
 
 Thinking abstractly, overlaps represent a mapping between query and subject. Depending on how we find overlaps, each query can have many hits in different subjects. A single subject range will always be allowed to have many query hits.
+
+        names(qry)[queryHits(hts)]
+        names(sbj)[subjectHits(hts)]
+![image](https://user-images.githubusercontent.com/104820908/167300103-299d5dc1-1843-4924-b48e-c2c1dca9f3ec.png)
+
+we could limit our overlap results to only include query ranges that fall entirely within subject ranges with type=within
+
+        hts_within <- findOverlaps(qry, sbj, type="within")
+        hts_within
+
+![image](https://user-images.githubusercontent.com/104820908/167300175-48a90001-5aac-4453-9956-a5c937251da9.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
