@@ -28,16 +28,16 @@ Bioconductor's core packages:
 3. Biostrings and BSgenome
 4. rtracklayer
 
-    ## GenomeRanges
-  # Install bioconductor
-  if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+    ##GenomeRanges
+    #Install bioconductor
+    if (!require("BiocManager", quietly = TRUE))
+        install.packages("BiocManager")
 
-  # Install Bioconductor core packages
-  BiocManager::install(version = "3.14")
+    #Install Bioconductor core packages
+    BiocManager::install(version = "3.14")
   
-  # Install specific Bioconductor Packages
-  BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
+    #Install specific Bioconductor Packages
+    BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
 
 
 
