@@ -81,17 +81,40 @@ First, IRanges objects can be grown or shrunk using arithmetic operations like +
         x + 4L
         x - 10L
 ![image](https://user-images.githubusercontent.com/104820908/167298009-552ef1bf-6ebf-4d94-84c5-64fa060e7b1d.png)
-restrict ranges within a certain bound
+
+Restrict ranges within a certain bound
 
         y <- IRanges(start = c(4,6,10,12), width = 13)
         y
         restrict(y,5,10)
 ![image](https://user-images.githubusercontent.com/104820908/167298111-eb8cab12-3da4-4000-87d5-d1cc01cf9524.png)
+
 flank() is useful in creating ranges upstream and downstream of protein coding genes that could contain promoter sequences
 
         x
         flank(x, width=7)
         flank(x, width=7, start=FALSE)
+
+![image](https://user-images.githubusercontent.com/104820908/167298535-18c2e9ae-ad78-434b-871b-c25ae7606ee8.png)
+
+reduce() operation takes a set of possibly overlapping ranges and reduces them to a set of nonoverlapping ranges that cover the same positions
+
+        set.seed(0)
+        alns <- IRanges(start=sample(seq_len(50), 20), width=5)
+        head(alns, 4)
+        reduce(alns)
+![image](https://user-images.githubusercontent.com/104820908/167298742-caad1a6c-99c5-489a-88c4-0fbd052da219.png)
+
+A similar operation to reduce() is gaps(), which returns the gaps (uncovered portions) between ranges
+
+If you’d like gaps() to include these gaps, specify the start and end positions in gaps (e.g.,gaps(alns, start=1, end=60))
+
+        gaps(alns)
+![image](https://user-images.githubusercontent.com/104820908/167298781-a5ad84f5-2d60-46ad-977f-3dc6c33c9f80.png)
+
+
+
+
 
 
 ## Bedtools
