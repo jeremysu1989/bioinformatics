@@ -1,8 +1,0 @@
-## GenomeRanges in R
-
-
-
-
-
-
-## Bedtools
