@@ -259,16 +259,34 @@ The basic syntax of if, for, and while are:
             # do some stuff
       }
  #### Working with R Scripts     
+You can run R scripts from R using the function source(). Also, it’s a good idea to
+indicate (either in comments or a README file) which directory the user should set
+as their working directory
 
+       source("my_analysis.R")
 
+#### Workflows for Loading and Combining Multiple Files
+In bioinformatics projects, sometimes loading data into R can be half the battle.
+Loading data is nontrivial whenever data resides in large files and when it’s scattered
+across many files. These workflows tie together many of the R
+tools we’ve learned so far: lapply(), do.call(), rbind(), and string functions like sub().
 
+The first step to loading this data into R is to programmatically access these files from
+R. If your project uses a well-organized directory structure and consistent filenames, 
+this is easy. R’s function list.files() lists all files in a specific directory. 
 
-
-
-
-
-
-
+With list.files() programmatically listing our files, it’s then easy to lapply() a
+function that loads each file in. 
+      loadFile <- function(x) {
+            # read in a BED file, extract the chromosome name from the file,
+            # and add it as a column
+            df <- read.delim(x, header=FALSE, col.names=bedcols)
+            df$chr_name <- sub("hotspots_([^\\.]+)\\.bed", "\\1", basename(x))
+            df$file <- x
+            df
+      }
+            
+                  
 
 
 
