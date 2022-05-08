@@ -41,7 +41,7 @@ Bioconductor's core packages:
 
 #### Storing Generic Ranges with IRanges
 
-# load the IRanges package
+        # load the IRanges package
         library(IRanges)
 
         #create ranges with the IRanges() function
@@ -74,11 +74,18 @@ As with dataframes, indexing using logical vectors created by statements like wi
         x[width(x) > 8]
         x['a']
 
+#### Basic Range Operations: Arithmetic, Transformations, and Set Operations
+First, IRanges objects can be grown or shrunk using arithmetic operations like +, -, and *
 
+        x <- IRanges(start=c(40, 80), end=c(67, 114))
+        x + 4L
+        x - 10L
+![image](https://user-images.githubusercontent.com/104820908/167298009-552ef1bf-6ebf-4d94-84c5-64fa060e7b1d.png)
 
-
-
-
+        y <- IRanges(start = c(4,6,10,12), width = 13)
+        y
+        restrict(y,5,10)
+![image](https://user-images.githubusercontent.com/104820908/167298111-eb8cab12-3da4-4000-87d5-d1cc01cf9524.png)
 
 
 
