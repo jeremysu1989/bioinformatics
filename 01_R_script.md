@@ -221,10 +221,20 @@ sub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
     
       str <- "Now is the time      "
       sub(" +$", "", str)     
+      
+      sub("gene=(\\w+)", "\\1", "gene=LEAFY", perl=TRUE)
+      
+      ## capitalizing
+      txt <- "a test of capitalizing"
+      gsub("(\\w)(\\w*)", "\\U\\1\\L\\2", txt, perl=TRUE)
+      gsub("\\b(\\w)",    "\\U\\1",       txt, perl=TRUE)
     
-    
-    
-    
+paste (..., sep = " ", collapse = NULL, recycle0 = FALSE)
+
+paste0(...,            collapse = NULL, recycle0 = FALSE)
+
+    paste0(1:12, c("st", "nd", "rd", rep("th", 9)))
+    paste(1:12, c("st", "nd", "rd", rep("th", 9)))
     
     
 
