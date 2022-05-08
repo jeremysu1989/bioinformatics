@@ -161,9 +161,14 @@ Because the options "first", "last", and "arbitrary" all lead findOverlaps() to 
         findOverlaps(qry, sbj, select="last")
         findOverlaps(qry, sbj, select="arbitrary")
 
+After running findOverlaps(), we need to work with Hits objects to extract information from the overlapping ranges
 
-
-
+        as.matrix(hts)
+        countQueryHits(hts)
+        setNames(countQueryHits(hts), names(qry))
+        countSubjectHits(hts)
+        setNames(countSubjectHits(hts), names(sbj))
+        ranges(hts, qry, sbj)
 
 
 
