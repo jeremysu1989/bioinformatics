@@ -286,10 +286,32 @@ function that loads each file in.
             df
       }
             
-                  
+Just as there’s more than one way to pet a cat, there are many ways to bulk load data into R.                 
+Processing files this way is very convenient for large files, and is even more powerful
+because it’s possible to parallelize data processing by simply replacing lapply() with
+mclapply().
 
+#### Exporting Data
 
+      write.table(x, file = "", append = FALSE, quote = TRUE, sep = " ",
+            eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+ 
+save writes an external representation of R objects to the specified file. The objects can be read back from the file at a later date by using the function load or attach (or data in some cases).
 
+save.image() is just a short-cut for ‘save my current workspace’, i.e., save(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv). It is also what happens with q("yes")
+
+      save(..., list = character(),
+            file = stop("'file' must be specified"),
+            ascii = FALSE, version = NULL, envir = parent.frame(),
+            compress = isTRUE(!ascii), compression_level,
+            eval.promises = TRUE, precheck = TRUE)
+
+      save.image(file = ".RData", version = NULL, ascii = FALSE,
+           compress = !ascii, safe = TRUE)
+
+     
 
 
 
