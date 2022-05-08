@@ -28,19 +28,51 @@ Bioconductor's core packages:
 3. Biostrings and BSgenome
 4. rtracklayer
 
-        ##GenomeRanges
-    
+        ##GenomeRanges    
         #Install bioconductor
         if (!require("BiocManager", quietly = TRUE))
             install.packages("BiocManager")
 
-        #Install Bioconductor core packages
-    
+        #Install Bioconductor core packages    
         BiocManager::install(version = "3.14")
   
         #Install specific Bioconductor Packages
-    
         BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
+
+#### Storing Generic Ranges with IRanges
+
+# load the IRanges package
+        library(IRanges)
+
+        #create ranges with the IRanges() function
+        rng <- IRanges(start = 4, end = 13)
+        rng
+        IRanges(start=4, width=3)
+        IRanges(end=5, width=5)
+
+        # IRanges() constructor (a function that creates a new object) can take vector arguments
+        x <- IRanges(start=c(4, 7, 2, 20), end=c(13, 7, 5, 23))
+        x
+
+        # each range can be given a name
+        names(x) <- letters[1:4]
+        x
+        class(x)
+        str(x)
+        start(x)
+        end(x)
+        width(x)
+        end(x) <- end(x) + 4
+        names(x)
+
+
+
+
+
+
+
+
+
 
 
 
