@@ -112,6 +112,28 @@ If you’d like gaps() to include these gaps, specify the start and end position
         gaps(alns)
 ![image](https://user-images.githubusercontent.com/104820908/167298781-a5ad84f5-2d60-46ad-977f-3dc6c33c9f80.png)
 
+Another class of useful range operations are analogous to set operations
+
+        a <- IRanges(start = 4, end = 13)
+        b <- IRanges(start = 12, end = 17)
+        intersect(a,b)
+        setdiff(a,b)
+        setdiff(b,a)
+        union(a,b)
+![image](https://user-images.githubusercontent.com/104820908/167299006-f569fdfc-caaf-42fc-a7b6-f89abd2019ec.png)
+
+IRanges also has a group of set operation functions that act pairwise, taking two equal-length IRanges objects and working range-wise: psetdiff(), pintersect(), punion(), and pgap(). 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
