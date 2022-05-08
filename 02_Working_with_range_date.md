@@ -154,10 +154,12 @@ we could limit our overlap results to only include query ranges that fall entire
 
 ![image](https://user-images.githubusercontent.com/104820908/167300175-48a90001-5aac-4453-9956-a5c937251da9.png)
 
+Another findOverlaps() parameter that we need to consider when computing overlaps is select, which determines how findOverlaps() handles cases where a single query range overlaps more than one subject range. 
+Because the options "first", "last", and "arbitrary" all lead findOverlaps() to return only one overlapping subject range per query (or NA if no overlap is found), results are returned in an integer vector where each element corresponds to a query range in qry:
 
-
-
-
+        findOverlaps(qry, sbj, select="first")
+        findOverlaps(qry, sbj, select="last")
+        findOverlaps(qry, sbj, select="arbitrary")
 
 
 
