@@ -37,7 +37,7 @@ Bioconductor's core packages:
     BiocManager::install(version = "3.14")
   
     #Install specific Bioconductor Packages
-    BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
+     BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))
 
 
 
