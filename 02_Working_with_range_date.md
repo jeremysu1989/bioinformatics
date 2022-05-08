@@ -81,14 +81,17 @@ First, IRanges objects can be grown or shrunk using arithmetic operations like +
         x + 4L
         x - 10L
 ![image](https://user-images.githubusercontent.com/104820908/167298009-552ef1bf-6ebf-4d94-84c5-64fa060e7b1d.png)
+restrict ranges within a certain bound
 
         y <- IRanges(start = c(4,6,10,12), width = 13)
         y
         restrict(y,5,10)
 ![image](https://user-images.githubusercontent.com/104820908/167298111-eb8cab12-3da4-4000-87d5-d1cc01cf9524.png)
+flank() is useful in creating ranges upstream and downstream of protein coding genes that could contain promoter sequences
 
-
-
+        x
+        flank(x, width=7)
+        flank(x, width=7, start=FALSE)
 
 
 ## Bedtools
