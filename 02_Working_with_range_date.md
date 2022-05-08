@@ -14,7 +14,9 @@ Remap genomic range data from an older genomic version's corrdinate system to a 
 2. NCBI Genome Remapping Service
 3. LiftOver
 
-
+Two different range systems
+1. 0-based coordinate system, with half-closed,half-open intercals
+2. 1-based coordinate system, with closed intervals
 
 
 ## Bedtools
