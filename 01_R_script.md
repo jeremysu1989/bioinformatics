@@ -310,8 +310,3 @@ save.image() is just a short-cut for ‘save my current workspace’, i.e., save
 
       save.image(file = ".RData", version = NULL, ascii = FALSE,
            compress = !ascii, safe = TRUE)
-
-     
-
-
-
