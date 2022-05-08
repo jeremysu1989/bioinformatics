@@ -2,11 +2,9 @@
 ### A crash course in genomic ranges and coordinate systems
 Specify a genomic region or position, we need three necessary pieces of information:
 
-1.Chromosome name
-
-2.Range
-
-3.Strand
+1. Chromosome name
+2. Range
+3. Strand
 
 ranges are completely linkded to a specific genome version.
 
