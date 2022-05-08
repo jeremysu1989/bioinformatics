@@ -207,12 +207,25 @@ df1 <- do.call(cbind,lapply(d_split,summary))
 
 df2 <- do.call(rbind,lapply(d_split,summary))
 
+## Exploring Dataframe with pdlyr
+dplyr has five basic functions for manipulating dataframes: arrange(), filter(),
+mutate(), select(), and summarize()
 
+#### working with string
+grep, grepl, regexpr, gregexpr, regexec and gregexec search for matches to argument pattern within each element of a character vector: they differ in the format of and amount of detail in the results.
 
+sub and gsub perform replacement of the first and all matches respectively.
 
-
-
-
-
+sub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
+    fixed = FALSE, useBytes = FALSE)
+    
+      str <- "Now is the time      "
+      sub(" +$", "", str)     
+    
+    
+    
+    
+    
+    
 
 
