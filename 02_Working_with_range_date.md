@@ -175,6 +175,56 @@ After running findOverlaps(), we need to work with Hits objects to extract infor
         setNames(countSubjectHits(hts), names(sbj))
         ranges(hts, qry, sbj)
 
+The functions subsetByOverlaps() and countOverlaps() simplify some of the most common operations performed on ranges once overlaps are found: keeping only the subset of queries that overlap subjects, and counting overlaps
+
+        countOverlaps(qry, sbj)
+        countOverlaps(sbj, qry)
+        subsetByOverlaps(qry,sbj)
+        subsetByOverlaps(sbj, qry)
+
+#### Finding Nearest Ranges and Calculating Distance
+finding ranges that neighbor query ranges
+
+1. nearest() function returns the nearest range, regardless of whether it's upstream or downstream of the query
+2. precede() and follow() return the nearest range that the query is upstream or downstream of, respectively
+
+        qry <- IRanges(start=6, end=13, name='query')
+        sbj <- IRanges(start=c(2, 4, 18, 19), end=c(4, 5, 21, 24), names=1:4)
+        qry
+        sbj
+        nearest(qry,sbj)
+        precede(qry,sbj)
+        follow(qry,sbj)
+
+![image](https://user-images.githubusercontent.com/104820908/167326893-7a8e8348-4b8f-46c6-a615-33d71c48a263.png)
+
+these operations are all vectorized
+
+        qry2 <- IRanges(start=c(6, 7), width=3)
+        nearest(qry2, sbj)
+
+This family of functions for finding nearest ranges also includes distanceToNearest() and distance(). distanceToNearest() works a lot like findOverlaps() for each query range. distance() returns each pairwise distance between query and subject ranges.
+
+        qry <- IRanges(sample(seq_len(1000), 5), width=50)
+        sbj <- IRanges(sample(seq_len(1000), 5), width=50)
+        qry
+        sbj
+        distanceToNearest(qry, sbj)
+        distanceToNearest(sbj, qry)
+        findOverlaps(qry,sbj)
+        distance(qry,sbj)
+
+#### Run Length Encoding and Views
+##### Run-length encoding and coverage()
+
+#### Storing Genomic Ranges with GenomicRanges
+The GenomicRanges package introduces a new class called GRanges for storing genomic ranges.The GRanges builds off of IRanges. IRanges objects are used to store ranges of genomic regions on a single sequence, and GRanges objects contain the two other pieces of information necessary to specify a genomic location: **sequence name** (e.g., which chromosome) and **strand**.
+
+
+
+
+
+
 
 
 
