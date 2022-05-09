@@ -304,11 +304,37 @@ for many overlap operation functions (e.g., reduce(), flank(), coverage(), and f
 
 #### Working with Annotation Data: GenomicFeatures and rtracklayer
 
+**GenomicFeatures** is a Bioconductor package for creating and working with transcript-based annotation. 
+
+All transcript annotation packages use the same consistent naming scheme—that is, TxDb.<organism>.<annotation-source>.<annotation-version>.
+
+        BiocManager::install(c("GenomicFeatures", "AnnotationDbi"))                             BiocManager::install(c("TxDb.Mmusculus.UCSC.mm10.ensGene"))
+        library(TxDb.Mmusculus.UCSC.mm10.ensGene)
+        txdb <- TxDb.Mmusculus.UCSC.mm10.ensGene
+        txdb
 
 
-
-
-
+TxDb object:
+# Db type: TxDb
+# Supporting package: GenomicFeatures
+# Data source: UCSC
+# Genome: mm10
+# Organism: Mus musculus
+# Taxonomy ID: 10090
+# UCSC Table: ensGene
+# UCSC Track: Ensembl Genes
+# Resource URL: http://genome.ucsc.edu/
+# Type of Gene ID: Ensembl gene ID
+# Full dataset: yes
+# miRBase build ID: NA
+# transcript_nrow: 94647
+# exon_nrow: 348801
+# cds_nrow: 226312
+# Db created by: GenomicFeatures package from Bioconductor
+# Creation time: 2016-09-29 04:15:25 +0000 (Thu, 29 Sep 2016)
+# GenomicFeatures version at creation time: 1.25.17
+# RSQLite version at creation time: 1.0.0
+# DBSCHEMAVERSION: 1.1                
 
 
 
