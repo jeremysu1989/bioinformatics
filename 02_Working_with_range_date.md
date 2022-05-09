@@ -268,13 +268,22 @@ The real power is when we combine subsetting with the data kept in our metadata 
         mean(mcols(gr[seqnames(gr) == "chr1"])$gc)
 
 #### Grouping Data with GRangesList
+GRanges objects also have their own version of a list, called GRangesList, which are similar to R’s lists. 
 
+        gr1 <- GRanges(c("chr1", "chr2"), IRanges(start=c(32, 95), width=c(24, 123)))
+        gr2 <- GRanges(c("chr8", "chr2"), IRanges(start=c(27, 12), width=c(42, 34)))
+        grl <- GRangesList(gr1, gr2)
+        grl
+        unlist(grl)
+        double_grl <- c(grl,grl) # combine many GRangeList objects with c()
+        length(double_grl)
+        double_grl[1] # returns GRangesList objects
+        double_grl[[1]] # returns a list element
 
+GRangesList objects also have some special features. For example, accessor functions for GRanges data (e.g., seqnames(), start(), end(), width(), ranges(), strand(), etc.) also work on GRangesList objects
 
-
-
-
-
+More often, GRangesLists come about as the result of
+using the function split() on GRanges objects. 
 
 
 
