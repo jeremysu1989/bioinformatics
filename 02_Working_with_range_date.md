@@ -163,6 +163,11 @@ Because the options "first", "last", and "arbitrary" all lead findOverlaps() to 
 
 After running findOverlaps(), we need to work with Hits objects to extract information from the overlapping ranges
 
+1. Hits objects can be coerced to matrix using as.matrix()
+2. countQueryHits() returns a vector of how many subject ranges each query IRanges object overlaps. Using the function setNames(),get the resulting vector the same names as original ranges
+3. countSubjectHits() and setNames() works as above
+4. *create a set of ranges for overlapping regions by calling the ranges() function using the Hits object as the first argument, and the same query and subject ranges we passed to findOverlaps() as the second and third arguments*
+
         as.matrix(hts)
         countQueryHits(hts)
         setNames(countQueryHits(hts), names(qry))
