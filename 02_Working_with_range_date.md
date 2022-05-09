@@ -337,8 +337,7 @@ All transcript annotation packages use the same consistent naming scheme—that 
         # RSQLite version at creation time: 1.0.0
         # DBSCHEMAVERSION: 1.1                
 
-
-
+First, access all gene regions in *Mus musculus*
 
 
 
