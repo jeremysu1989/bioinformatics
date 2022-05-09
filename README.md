@@ -18,6 +18,10 @@ Record Everyday Using Unix Script.  Record them in unix.sh
 ### 20220506
 To learn bioawk ***haven't done***
 
-To use for loop in shell
+To use for loop in shell 
 
-To check the completeness of all files downloaded from website, use shell script
+To check the completeness of all files downloaded from website, use shell script *partial finished, for loop to download dataset from ensemble*
+
+
+### 20220509
+To learn **GenomicFeatures** and **rtracklayer**.
