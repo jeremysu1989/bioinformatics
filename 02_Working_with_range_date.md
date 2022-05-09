@@ -262,10 +262,12 @@ We access data in GRanges objects much like we access data from IRanges objects:
         mcols(gr)$gc # access a column of dataframe
         gr$gc
 
+The real power is when we combine subsetting with the data kept in our metadata columns. 
 
+        mcols(gr[seqnames(gr) == "chr1"])$gc
+        mean(mcols(gr[seqnames(gr) == "chr1"])$gc)
 
-
-
+#### Grouping Data with GRangesList
 
 
 
