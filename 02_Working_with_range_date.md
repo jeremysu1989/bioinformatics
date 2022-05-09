@@ -220,11 +220,18 @@ This family of functions for finding nearest ranges also includes distanceToNear
 #### Storing Genomic Ranges with GenomicRanges
 The GenomicRanges package introduces a new class called GRanges for storing genomic ranges.The GRanges builds off of IRanges. IRanges objects are used to store ranges of genomic regions on a single sequence, and GRanges objects contain the two other pieces of information necessary to specify a genomic location: **sequence name** (e.g., which chromosome) and **strand**.
 
+        library(GenomicRanges)
+        gr <- GRanges(seqname=c("chr1", "chr1", "chr2", "chr3"),
+                      ranges=IRanges(start=5:8, width=10),
+                      strand=c("+", "-", "-", "+"))
+        gr
 
+Using the GRanges() constructor, we can also add arbitrary metadata columns by specifying additional named arguments.This illustrates the structure of GRanges objects: **genomic location specified by sequence name, range, and strand (on the left of the dividing bar), and metadata columns (on the right)**. Each row of metadata corresponds to a range on the same row.
 
-
-
-
+        gr <- GRanges(seqname=c("chr1", "chr1", "chr2", "chr3"),
+                      ranges=IRanges(start=5:8, width=10),
+                      strand=c("+", "-", "-", "+"), gc=round(runif(4), 3))
+        gr
 
 
 
