@@ -404,6 +404,24 @@ If we didn’t care about the specifics of these ranges (e.g., the information s
 In addition to its import/export functions, rtracklayer also interfaces with genome browsers like UCSC’s Genome Browser. Using rtracklayer, one can create tracks for UCSC’s browser directly from GRanges objects and send these to a UCSC Genome Browser web session directly from R. If you find yourself using the UCSC Genome Browser frequently, it’s worth reading the rtracklayer vignette and learning how to interact with it through R
                            
 #### Retrieving promoter regions: flank and promoters
+
+        table(mm_gtf$gene_biotype)
+        chr1_pcg <- mm_gtf[mm_gtf$type == "gene" & mm_gtf$gene_biotype == "protein_coding"]
+        summary(width(chr1_pcg))
+        length(chr1_pcg)
+        chr1_pcg_3kb_up <- flank(chr1_pcg, width=3000)
+
+Extracting promoter regions is such a common operation that GenomicRanges packages have a convenience function to make it even simpler: promoters()
                            
-                           ## Bedtools                           
-                           
+        chr1_pcg_3kb_up2 <- promoters(chr1_pcg, upstream=3000, downstream=0)
+        identical(chr1_pcg_3kb_up, chr1_pcg_3kb_up2)
+
+#### Retrieving Promoter Sequence: Connection GenomicRanges with Sequence Data        
+
+Once we’ve created promoter ranges using flank() (or promoters()), we can use these to grab the promoter nucleotide sequences from a genome. There are two different ways we could do this:
+1. Entirely through Bioconductor’s packages (as we’ll see in this section)
+2. By exporting the GenomicRanges objects to a range file format like BED, and
+using a command-line tool like BEDTools
+        
+        
+## Bedtools                           
