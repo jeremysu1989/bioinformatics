@@ -372,10 +372,10 @@ To extract feature data that only overlaps a specific region, use the following 
         
 transcriptByOverlaps() returns all transcripts overlapping this range        
 
-The *rtracklayer* package includes flexible functions for importing and exporting data that stores ranges from a variety of formats like GTF/GFF, BED, BED Graph, and Wiggle.           
+The **rtracklayer** package includes flexible functions for importing and exporting data that stores ranges from a variety of formats like GTF/GFF, BED, BED Graph, and Wiggle.           
                                
                                
-                               
+                              
                                
                                
                                
