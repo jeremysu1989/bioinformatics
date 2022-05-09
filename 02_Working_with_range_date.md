@@ -374,12 +374,36 @@ transcriptByOverlaps() returns all transcripts overlapping this range
 
 The **rtracklayer** package includes flexible functions for importing and exporting data that stores ranges from a variety of formats like GTF/GFF, BED, BED Graph, and Wiggle.           
                                
-                               
+        library(rtracklayer)
+        # shell script
+        # wget -c http://ftp.ensembl.org/pub/release-106/gtf/mus_musculus/Mus_musculus.GRCm39.106.chr.gtf.gz &
+        # sum Mus_musculus.GRCm39.106.chr.gtf.gz
+        # gzip -d Mus_musculus.GRCm39.106.chr.gtf.gz
+        # grep -w "^1" Mus_musculus.GRCm39.106.chr.gtf > Mus_musculus.GRCm39.106.chr1.gtf 
+        # mv Mus_musculus.GRCm39.106.chr1.gtf Mus_musculus.GRCm38.75_chr1.gtf
+        # gzip Mus_musculus.GRCm38.75_chr1.gtf
+
+        mm_gtf <- import('Mus_musculus.GRCm38.75_chr1.gtf.gz')
+        mcols(mm_gtf)
+        colnames(mcols(mm_gtf))                           
                               
+The rtracklayer package also provides export methods, for taking range data and saving it to a variety of common range formats                               
+
+        set.seed(0)
+        pseudogene_i <- which(mm_gtf$gene_biotype == "processed_pseudogene" & mm_gtf$type == "gene")
+        pseudogene_sample <- sample(pseudogene_i, 5)
+        export(mm_gtf[pseudogene_sample], con="five_random_pseudogene.gtf",
+               format="GTF")                  
                                
+If we didn’t care about the specifics of these ranges (e.g., the information stored in the metadata columns), the BED file format may be more appropriate. BED files require at a minimum three columns: chromosomes (or sequence name), start position, and end position (sometimes called the BED3 format)
                                
-                               
-                               
-                               
-                               
-        ## Bedtools
+        bed_data <- mm_gtf[pseudogene_sample]
+        mcols(bed_data) <- NULL # clear out metadata columns
+        export(bed_data, con="five_random_pseudogene.bed", format="BED")
+
+In addition to its import/export functions, rtracklayer also interfaces with genome browsers like UCSC’s Genome Browser. Using rtracklayer, one can create tracks for UCSC’s browser directly from GRanges objects and send these to a UCSC Genome Browser web session directly from R. If you find yourself using the UCSC Genome Browser frequently, it’s worth reading the rtracklayer vignette and learning how to interact with it through R
+                           
+#### Retrieving promoter regions: flank and promoters
+                           
+                           ## Bedtools                           
+                           
