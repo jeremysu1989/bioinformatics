@@ -285,6 +285,27 @@ GRangesList objects also have some special features. For example, accessor funct
 More often, GRangesLists come about as the result of
 using the function split() on GRanges objects. 
 
+        chrs <- c("chr3", "chr1", "chr2", "chr2", "chr3", "chr1")
+        gr <- GRanges(chrs, IRanges(sample(1:100, 6, replace=TRUE),
+                                    width=sample(3:30, 6, replace=TRUE)))
+        seqnames(gr)
+        gr_split <- split(gr, seqnames(gr))
+        gr_split
+        unsplit(gr_split, seqnames(gr))
+
+Grouped data is also the basis of the split-apply-combine pattern 
+
+        lapply(gr_split, function(x) order(width(x)))
+        sapply(gr_split, function(x) min(start(x)))
+        lapply(gr_split, function(x) min(start(x)))
+        sapply(gr_split, length)
+
+for many overlap operation functions (e.g., reduce(), flank(), coverage(), and findOverlaps()), they can work directly with GRangesList objects
+
+#### Working with Annotation Data: GenomicFeatures and rtracklayer
+
+
+
 
 
 
