@@ -233,6 +233,50 @@ Using the GRanges() constructor, we can also add arbitrary metadata columns by s
                       strand=c("+", "-", "-", "+"), gc=round(runif(4), 3))
         gr
 
+We can specif the sequence lengths in the GRanges constructor, or set it after the object has been created using the seqlengths() function.
+
+        seqlens <- c(chr1=152, chr2=432, chr3=903)
+        gr <- GRanges(seqname=c("chr1", "chr1", "chr2", "chr3"),
+                      ranges=IRanges(start=5:8, width=10),
+                      strand=c("+", "-", "-", "+"), gc=round(runif(4), 3),
+                      seqlengths=seqlens)
+        gr
+
+        seqlengths(gr) <- seqlens
+        gr
+
+We access data in GRanges objects much like we access data from IRanges objects: with accessor functions. 
+
+        start(gr) #Ranges accessor function
+        end(gr)
+        width(gr)
+        seqnames(gr) #GRanges specific accessor function
+        strand(gr) 
+        ranges(gr) # Ranges accessor function
+        length(gr)
+        names(gr) <- letters[1:length(gr)]
+        gr
+        table(seqnames(gr))
+        gr[seqnames(gr) == "chr1"] # subsetting of GRanges object
+        mcols(gr) # access metadata columns, and return a dataframe
+        mcols(gr)$gc # access a column of dataframe
+        gr$gc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
