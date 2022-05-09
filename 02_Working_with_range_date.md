@@ -339,7 +339,47 @@ All transcript annotation packages use the same consistent naming scheme—that 
 
 First, access all gene regions in *Mus musculus*
 
+        mm_genes <- genes(txdb)
+        length(mm_genes)
+        head(mm_genes)
+        str(mm_genes)
+        mm_genes$gene_id
 
+GenomicFeatures returns the data in a GRanges object, so all the tricks we’ve learned for working with GRanges can be used to work with this data.
+                
+It’s always a good idea to make sure you know what. you’re getting with gene annotation; you should also validate that the totals make sense against an external source.             
 
+        transcripts(txdb)
+        exons(txdb)        
+        
+GenomicFeatures also provides functions for extracting subsets of features that overlap a specific chromosome or range. 
 
-## Bedtools
+        seqlevels(txdb) <- c("chr1")
+        seqlengths(txdb)
+        chr1_exons <- exonsBy(txdb, "tx")
+        length(chr1_exons)
+        all(unlist(seqnames(chr1_exons)) == "chr1")
+
+        txdb <- restoreSeqlevels(txdb)
+        length(seqlengths(txdb))
+        seqlevels(txdb)        
+        
+To extract feature data that only overlaps a specific region, use the following family of functions: transcriptsByOverlaps(), exonsByOverlaps(), and cdsByOverlaps()       
+        
+        qtl_region <- GRanges("chr8", IRanges(123260562, 123557264))
+        qtl_region_expanded <- qtl_region + 10e3
+        transcriptsByOverlaps(txdb, qtl_region_expanded)       
+        
+transcriptByOverlaps() returns all transcripts overlapping this range        
+
+The *rtracklayer* package includes flexible functions for importing and exporting data that stores ranges from a variety of formats like GTF/GFF, BED, BED Graph, and Wiggle.           
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+        ## Bedtools
