@@ -420,8 +420,54 @@ Extracting promoter regions is such a common operation that GenomicRanges packag
 
 Once we’ve created promoter ranges using flank() (or promoters()), we can use these to grab the promoter nucleotide sequences from a genome. There are two different ways we could do this:
 1. Entirely through Bioconductor’s packages (as we’ll see in this section)
-2. By exporting the GenomicRanges objects to a range file format like BED, and
-using a command-line tool like BEDTools
+2. By exporting the GenomicRanges objects to a range file format like BED, and using a command-line tool like BEDTools
+
+        # Connection genomicRanges with Sequence Data
+        BiocManager::install(c("BSgenome"))
+        BiocManager::install(c("BSgenome.Mmusculus.UCSC.mm10"))
+        # load the BSgenome.Mmusculus.UCSC.mm10 package and poke around
+        library(BSgenome.Mmusculus.UCSC.mm10)
+        mm_gm <- BSgenome.Mmusculus.UCSC.mm10
+        # BSgenome package information
+        organism(mm_gm)
+        providerVersion(mm_gm)
+        provider(mm_gm)
+        # seq information
+        seqinfo(mm_gm)
+        mm_gm$chrM # get sequence of chrM
+        mm_gm[[22]]
+
+        #Because having to switch between the style “chr1” (UCSC style) and “1” (Ensembl/NCBI style) is common, Bioconductor provides a convenience function seqlevelsStyle() seqlevelsStyle(chr1_pcg_3kb_up)
+        chr1_3kb_seqs <- getSeq(mm_gm, chr1_pcg_3kb_up)
+        chr1_3kb_seqs
+        writeXStringSet(chr1_3kb_seqs, file="mm10_chr1_3kb_promoters.fasta",format="fasta")
+
+
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
         
 ## Bedtools                           
