@@ -442,32 +442,52 @@ Once we’ve created promoter ranges using flank() (or promoters()), we can use 
         chr1_3kb_seqs
         writeXStringSet(chr1_3kb_seqs, file="mm10_chr1_3kb_promoters.fasta",format="fasta")
 
+#### Getting intergenic and intronic regions: gaps, reduce, and setdiffs in Practice
 
+        ###################
+        # Getting intergenic and intronic regions: gaps, reduce, and setdiffs in Practice
+        gr2 <- GRanges(c("chr1", "chr2"), IRanges(start=c(4, 12), width=6),
+                       strand=c("+", "-"), seqlengths=c(chr1=21, chr2=41))
+        gr2
+        gaps(gr2)        
         
+Replacing strand with the ambiguous strand * is a common trick when we don’t care about keeping strand information. With gaps, we usually don’t care about the specifics of strand—we usually say a region is covered by a range, or it’s a gap        
         
+        gr3 <- gr2
+        strand(gr3) <- "*"
+        gaps(gr3)[strand(gaps(gr3)) == "*"]        
         
+create GRanges objects representing the introns of transcripts
+                       
+1. using a simple convenience function appropriately named intronsByTranscripts()
+2. using range set operations
         
+        #uses the TranscriptDb object txdb
+        mm_introns <- intronsByTranscript(txdb)
+        length(mm_introns)
+        head(mm_introns)
+        head(mm_introns[['18880']], 2) # get first two introns for transcript 18880        
+        #uses range set operations
+        amy1 <- transcriptsBy(txdb, 'gene')$ENSMUSG00000074264
+        amy1
+        mm_exons <- exonsBy(txdb, "tx")
+        mm_exons[[18881]] # an example exon GRanges object to see what it looks like        
         
+#### Calculating Coverage of GRanges Objects        
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-
+        set.seed(0)      
+        chr19_len <- seqlengths(txdb)['chr19']
+        chr19_len
+        start_pos <- sample(1:(chr19_len-150), 2047719, replace=TRUE)
+        reads <- GRanges("chr19", IRanges(start=start_pos, width=150))
+        cov_reads <- coverage(reads)
+        cov_reads
+        mean(cov_reads)
+        table(cov_reads == 0)
+        sum(runLength(cov_reads)[runValue(cov_reads) == 0])
+        406487/chr19_len #about 0.6% of our chromosome 19 remains uncovered        
+       
         
 ## Bedtools                           
+
+        $ bedtools intersect -a query-sorted.bed -b subject-sorted.bed --sorted
