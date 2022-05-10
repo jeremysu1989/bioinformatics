@@ -25,3 +25,6 @@ To check the completeness of all files downloaded from website, use shell script
 
 ### 20220509
 To learn **GenomicFeatures** and **rtracklayer**.
+
+### 20220511
+To run R script on remote severs
