@@ -90,17 +90,15 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 
 #### Extracting and Filtering Alignments with samtools view
 
+**Extracting alignments from a region with samtools view**
 
+**Filtering alignments with samtools view**
 ```diff
-- RED text
-+ GREEN text
-! ORANGE text
-# GRAY text
+- There are two options related to samtools view to filter based on bitwise flags 
++ -f, which only outputs reads with the specified flags
+! -F, which only outputs reads without the specified flag
 ```
 
-
-### GitLab Purple Heading
-{: .gitlab-purple}
 
 
 
