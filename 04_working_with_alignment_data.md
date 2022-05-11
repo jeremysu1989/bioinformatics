@@ -82,7 +82,12 @@ sort alignments by their alignment position with *samtools sort*
 we can use the *samtools sort* option *-m* to increase the memory, and *-@* to specify how many threads to use.
         samtools sort -m 4G -@ 2 testfile_unsorted.bam testfile_sorted
 
-<span style="color:red"> *some emphasized markdown text*</span>
+```diff
+- RED text
++ GREEN text
+! ORANGE text
+# GRAY text
+```
 
 
 
