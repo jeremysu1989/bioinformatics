@@ -67,71 +67,71 @@ Objects may have attributes, such as name, dimension, and class.
 tidyr
 
 ## dataframe slicing and dicing
-rm(list = ls())
+      rm(list = ls())
 
-x <- sample(1:50, 300, replace = TRUE)
+      x <- sample(1:50, 300, replace = TRUE)
 
-y <- 3.2*x + rnorm(300,0,40)
+      y <- 3.2*x + rnorm(300,0,40)
 
-d <- data.frame(x=x, y=y)
+      d <- data.frame(x=x, y=y)
 
-summary(d$x)
+      summary(d$x)
 
-summary(d$y)
+      summary(d$y)
 
-d$x >=48
+      d$x >=48
 
-d[d$x >= 48,]
+      d[d$x >= 48,]
 
-d[d$x >=45 & d$y >=200,]
+      d[d$x >=45 & d$y >=200,]
 
-d[d$x >=45 & d$y >=200,c("x")]
+      d[d$x >=45 & d$y >=200,c("x")]
 
-d[d$x >=45 & d$y >=200,c("y")]
+      d[d$x >=45 & d$y >=200,c("y")]
 
-d$x[d$y > 200]
+      d$x[d$y > 200]
 
-summary(d$x[d$y > 200])
+      summary(d$x[d$y > 200])
 
-which(d$y > 200)
+      which(d$y > 200)
 
-which(d$x >=45 & d$y >=200)
+      which(d$x >=45 & d$y >=200)
 
-which.min(d$x)
+      which.min(d$x)
 
-d[which.min(d$x),]
+      d[which.min(d$x),]
 
-which.max(d$y)
+      which.max(d$y)
 
-d[which.max(d$y),]
+      d[which.max(d$y),]
 
-subset(d,d$x <= 2)
+      subset(d,d$x <= 2)
 
 ## Binnind data with cut() and Bar plots with ggplot2
-library("ggplot2")
+      library("ggplot2")
 
-d$x.binned <- cut(d$x,5)
+      d$x.binned <- cut(d$x,5)
 
-d$x.binned
+      d$x.binned
 
-table(d$x)
+      table(d$x)
 
-table(d$x.binned)
+      table(d$x.binned)
 
-ggplot(d) + geom_bar(aes(x=x))
+      ggplot(d) + geom_bar(aes(x=x))
 
-ggplot(d) + geom_bar(aes(x=x.binned, fill=x.binned))
+      ggplot(d) + geom_bar(aes(x=x.binned, fill=x.binned))
 
 ## Matching vectors and merging dataframes
 
-c(3, 4, -1) %in% c(1, 3, 4, 8)
+      c(3, 4, -1) %in% c(1, 3, 4, 8)
 
-match(c("A", "C", "E", "A"), c("A", "B", "A", "E"))
+      match(c("A", "C", "E", "A"), c("A", "B", "A", "E"))
 
-merge(x, y, by = intersect(names(x), names(y)),
-      by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
-      sort = TRUE, suffixes = c(".x",".y"), no.dups = TRUE,
-      incomparables = NULL, ...)
+      merge(x, y, by = intersect(names(x), names(y)),
+            by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
+            sort = TRUE, suffixes = c(".x",".y"), no.dups = TRUE,
+            incomparables = NULL, ...)
 
 ## ggplot2 Facet
 
@@ -140,47 +140,47 @@ https://ggplot2-book.org/facet.html
 http://www.sthda.com/english/wiki/ggplot2-facet-split-a-plot-into-a-matrix-of-panels
 
 ## List
-adh <- list(chr="2L", start=14615555L, end=14618902L, name="Adh")
+      adh <- list(chr="2L", start=14615555L, end=14618902L, name="Adh")
 
-adh$chr
+      adh$chr
 
-adh[1]
+      adh[1]
 
-adh[[1]]
+      adh[[1]]
 
-adh['chr']
+      adh['chr']
 
-adh[['chr']]
+      adh[['chr']]
 
-adh$id <- "FBgn0000055"
+      adh$id <- "FBgn0000055"
 
-adh$id2 <- c("FBgn0000055","FBgn0000077")
+      adh$id2 <- c("FBgn0000055","FBgn0000077")
 
-adh$id2 <- NULL
+      adh$id2 <- NULL
 
-unlist(adh)
+      unlist(adh)
 
 ## lapply() and sapply()
 #### calculate the mean value of each vector in list with loop
-ll <- list(a=rnorm(6, mean=1), b=rnorm(6, mean=4), c=rnorm(6, mean=6))
+      ll <- list(a=rnorm(6, mean=1), b=rnorm(6, mean=4), c=rnorm(6, mean=6))
 
-ll_means <- numeric(length(ll))
+      ll_means <- numeric(length(ll))
 
-for (i in seq_along(ll)){
-  ll_means[i] <- mean(ll[[i]])
-}
+      for (i in seq_along(ll)){
+        ll_means[i] <- mean(ll[[i]])
+      }
 
-typeof(ll_means)       #"double"
+      typeof(ll_means)       #"double"
 #### calculate the mean value of each vector in list with lapply()
-ll_means <- lapply(ll,mean)
+      ll_means <- lapply(ll,mean)
 
-typeof(ll_means)       #"list"
+      typeof(ll_means)       #"list"
 
 #### specify additional argument
-ll_means <- lapply(ll, mean, na.rm=TRUE)
+      ll_means <- lapply(ll, mean, na.rm=TRUE)
 
 #### Or use anonymous funciton
-ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
+      ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
 
 #### write a more verbose function
       meanRemoveNAVerbose <- function(x, warn=TRUE) {
@@ -197,15 +197,15 @@ ll_means <- laply(ll, function(x) mean(x, na.rm=TRUE))
 There are a few other useful tricks to know about the split-apply-combine pattern
 built from split(), lapply(), and do.call() with rbind()
 #### Split
-d_split <- split(d$x,d$x.binned)
+      d_split <- split(d$x,d$x.binned)
 
-str(d_split)
+      str(d_split)
 #### Apply
-lapply(d_split,summary)
+      lapply(d_split,summary)
 #### Combine
-df1 <- do.call(cbind,lapply(d_split,summary))
+      df1 <- do.call(cbind,lapply(d_split,summary))
 
-df2 <- do.call(rbind,lapply(d_split,summary))
+      df2 <- do.call(rbind,lapply(d_split,summary))
 
 ## Exploring Dataframe with pdlyr
 dplyr has five basic functions for manipulating dataframes: arrange(), filter(),
