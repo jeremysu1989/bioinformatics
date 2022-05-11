@@ -105,16 +105,6 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 
 #### Visualizing Alignments with samtools tview and the Integrated Genomics Viewer
 
-+++
+---
 
 #### Creating Your Own SAM/BAM Processing Tools with Pysam
-
-
-
-
-
-
-
-
-
-
