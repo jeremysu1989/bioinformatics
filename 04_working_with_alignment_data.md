@@ -69,8 +69,11 @@ Mapping qualities are one of the most important diagnostics in alignment. All st
 All commands are well documented both online and in the programs themselves.
 
 #### Using **samtools view** to convert between SAM and BAM
+Many **samtools** subcommands such as **sort, index, depth,** and **mpileup** all require input files (or streams) to be in BAM format for efficiency.
 
-
+**samtools view** allows us to convert SAM to BAM with the *-b* option or vice verse
+        samtools view -b testfile.sam > testfile.bam
+        samtools view testfile.bam > testfile.sam
 
 
 
