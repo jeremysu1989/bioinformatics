@@ -82,6 +82,12 @@ sort alignments by their alignment position with *samtools sort*
 we can use the *samtools sort* option *-m* to increase the memory, and *-@* to specify how many threads to use.
         samtools sort -m 4G -@ 2 testfile_unsorted.bam testfile_sorted
 
+To index a position-sorted BAM file, we simply use:
+```
+samtools index testfiles_sorted.bam
+```
+This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor the testfile_sorted.bam file.
+
 ```diff
 - RED text
 + GREEN text
