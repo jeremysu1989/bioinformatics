@@ -90,7 +90,11 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 
 #### Extracting and Filtering Alignments with samtools view
 
+---
+
 **Extracting alignments from a region with samtools view**
+
+---
 
 **Filtering alignments with samtools view**
 ```diff
@@ -99,6 +103,11 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 # -F, which only outputs reads without the specified flag
 ```
 
+#### Visualizing Alignments with samtools tview and the Integrated Genomics Viewer
+
+---
+
+#### Creating Your Own SAM/BAM Processing Tools with Pysam
 
 
 
