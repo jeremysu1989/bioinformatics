@@ -75,12 +75,14 @@ Many **samtools** subcommands such as **sort, index, depth,** and **mpileup** al
         samtools view -b testfile.sam > testfile.bam
         samtools view testfile.bam > testfile.sam
 
+#### samtools sort and index
+sort alignments by their alignment position with *samtools sort*
+        samtools sort testfile_unsorted.bam testfile_sorted
 
+we can use the *samtools sort* option *-m* to increase the memory, and *-@* to specify how many threads to use.
+        samtools sort -m 4G -@ 2 testfile_unsorted.bam testfile_sorted
 
-
-
-
-
+<span style="color:red"> *some emphasized markdown text*</span>
 
 
 
