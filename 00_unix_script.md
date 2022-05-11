@@ -148,6 +148,8 @@ https://blog.csdn.net/yxtxiaotian/article/details/69568774?spm=1001.2101.3001.66
 ## 服务器和本地之间文件传输
 #### download file over SSH protocol
     scp username@hostname:/path/to/remote/file /path/to/local/file
+    scp jeremysu@192.168.202.180:/data/home/jeremysu/test/fastq_checksums.sha /Users/scarecrow
 
 #### Uploading a file from a local computer to a remote one
     scp /path/to/local/file username@hostname:/path/to/remote/file
+    scp /Users/scarecrow/Temp/test/Sars_cov_2.gff3 jeremysu@192.168.202.180:/data/home/jeremysu/test/
