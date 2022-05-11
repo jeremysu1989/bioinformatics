@@ -68,8 +68,11 @@ This is the beauty of reusing code: wellwritten functions and libraries prevent 
 Reusing software isn’t cheating—it’s how the experts program.
 
 #### Indexed FASTA Files
+
 index the FASTA file
+
     samtools faidx testfile.fa
     
 access the subsequence for a particular region
+
     samtools faidx testfile.fa <region>
