@@ -83,7 +83,7 @@ we can use the *samtools sort* option *-m* to increase the memory, and *-@* to s
         samtools sort -m 4G -@ 2 testfile_unsorted.bam testfile_sorted
 
 To index a position-sorted BAM file, we simply use:
-```
+```diff
 samtools index testfiles_sorted.bam
 ```
 This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor the testfile_sorted.bam file.
