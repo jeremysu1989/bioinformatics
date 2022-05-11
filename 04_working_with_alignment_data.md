@@ -88,6 +88,9 @@ samtools index testfiles_sorted.bam
 ```
 This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor the testfile_sorted.bam file.
 
+#### Extracting and Filtering Alignments with samtools view
+
+
 ```diff
 - RED text
 + GREEN text
@@ -96,6 +99,8 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 ```
 
 
+### GitLab Purple Heading
+{: .gitlab-purple}
 
 
 
