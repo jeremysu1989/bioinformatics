@@ -31,7 +31,7 @@ Each alignment entry is composed of 11 required fields (and optional fields afte
 
 1. I_2011868_2012306_0:0:0_0:0:0_2489 # QNAME, the query name
 
-2. 83 # FLAG,the bitwise flag, which contains information abut the alignment
+2. 83 # FLAG,the bitwise flag, which contains information abut the alignment. **Bitwise flags**
 
 3. I # RNAME, the reference name, The reference name must be in the SAM/BAM headers as an SQ entry. If the read is unaligned, this entry may be *
 
@@ -50,3 +50,43 @@ Each alignment entry is composed of 11 required fields (and optional fields afte
 9. CAAAAAATTTTGAAAAAAAAAATTGAATAAAAATTCACGGATTTCTGGCT # SEQ stores the original read sequence 
 
 10. 22222222222222222222222222222222222222222222222222 # QUAL stores the origina read base quality
+
+#### Bitwise Flags
+Many important pieces of information about an alignment are encoded using *bitwise flags*. Bitwise flags are a very space-efficient and common way to encode attributes, so they're worth understanding. Bitwise flags are much like a series of toggle switches, each of which can be either on or off. Each switch represents whether a particular attribute of an alignment is true or false.
+        samtools flags 147
+
+#### CIGAR strings
+While bitwise flags store true/false propeties about an alignment, **CIGAR** strings encode information about which bases of an alignment are matches/mismatches, insertions, deletions, soft or hard clipped, and so on.
+
+**Soft clipping** is when only part of the query sequence is aligned to the reference, leaving some portion of the query sequence unaligned. Soft clipping  occurs when an aligner can partially map a read to a location, but the head or tail of the query sequence doesn't match.
+
+**Hard clipping** is similar, but hard-clipped regions are not present in the sequence stored in the SAM field SEQ. A basic CIGAR string contains concatenated pairs of integer *lengths* and character *operations*.  For example, a fully aligned 51 base pair read without insertions or deletions would have a CIGAR string containing a single length/operation pair: **51M**
+
+#### Mapping Qualities
+Mapping qualities are one of the most important diagnostics in alignment. All steps downstream of alignment in all bioinformatics projects *critically depend on reliable mapping*.
+
+#### Command-Line Tools for Working with Alignments in the SAM Format
+All commands are well documented both online and in the programs themselves.
+
+#### Using **samtools view** to convert between SAM and BAM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
