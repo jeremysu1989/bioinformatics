@@ -22,45 +22,45 @@ The FASTQ format extends FASTA by including a numeric quality score to each base
 2. Consider how this might impact your analyses
 
 #### Inspecting and Trimming Low-Quality Bases
-  ## GenomeRanges
-  rm(list = ls())
-  # Install pacman
-  if (!require("pacman", quietly = TRUE))
-    install.packages("pacman")
-  # Install bioconductor
-  if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-  # Install specific Bioconductor Packages
-  BiocManager::install(c("qrqc"))
-  library(qrqc)
-  ######## change the working directory
-  #setwd()
-  fqfiles <- c(none="untreated1_chr4.fq")
-  # Load each file in, using qrqc's readSeqFile
-  # We only need qualities, so we turn off some of
-  # readSeqFile's other features.
-  seq_info <- lapply(fqfiles, function(file) {
-    readSeqFile(file, hash=FALSE, kmer=FALSE)
-  })
-  # Extract the qualities as dataframe, and append
-  # a column of which trimmer (or none) was used. This
-  # is used in later plots.
-  quals <- mapply(function(sfq, name) {
-    qs <- getQual(sfq)
-    qs$trimmer <- name
-    qs
-  }, seq_info, names(fqfiles), SIMPLIFY=FALSE)
-  # Combine separate dataframes in a list into single dataframe
-  d <- do.call(rbind, quals)
-  # Visualize qualities
-  p1 <- ggplot(d) + geom_line(aes(x=position, y=mean, linetype=trimmer))
-  p1 <- p1 + ylab("mean quality (sanger)") + theme_bw()
-  print(p1)
-  # Use qrqc's qualPlot with list produces panel plots
-  # Only shows 10% to 90% quantiles and lowess curve
-  p2 <- qualPlot(seq_info, quartile.color=NULL, mean.color=NULL) + theme_bw()
-  p2 <- p2 + scale_y_continuous("quality (sanger)")
-  print(p2)
+    ## GenomeRanges
+    rm(list = ls())
+    # Install pacman
+    if (!require("pacman", quietly = TRUE))
+      install.packages("pacman")
+    # Install bioconductor
+    if (!require("BiocManager", quietly = TRUE))
+      install.packages("BiocManager")
+    # Install specific Bioconductor Packages
+    BiocManager::install(c("qrqc"))
+    library(qrqc)
+    ######## change the working directory
+    #setwd()
+    fqfiles <- c(none="untreated1_chr4.fq")
+    # Load each file in, using qrqc's readSeqFile
+    # We only need qualities, so we turn off some of
+    # readSeqFile's other features.
+    seq_info <- lapply(fqfiles, function(file) {
+      readSeqFile(file, hash=FALSE, kmer=FALSE)
+    })
+    # Extract the qualities as dataframe, and append
+    # a column of which trimmer (or none) was used. This
+    # is used in later plots.
+    quals <- mapply(function(sfq, name) {
+      qs <- getQual(sfq)
+      qs$trimmer <- name
+      qs
+    }, seq_info, names(fqfiles), SIMPLIFY=FALSE)
+    # Combine separate dataframes in a list into single dataframe
+    d <- do.call(rbind, quals)
+    # Visualize qualities
+    p1 <- ggplot(d) + geom_line(aes(x=position, y=mean, linetype=trimmer))
+    p1 <- p1 + ylab("mean quality (sanger)") + theme_bw()
+    print(p1)
+    # Use qrqc's qualPlot with list produces panel plots
+    # Only shows 10% to 90% quantiles and lowess curve
+    p2 <- qualPlot(seq_info, quartile.color=NULL, mean.color=NULL) + theme_bw()
+    p2 <- p2 + scale_y_continuous("quality (sanger)")
+    print(p2)
 
 #### A FASTA/FASTQ Parsing Example: Counting Nucleotides
 This is the beauty of reusing code: wellwritten functions and libraries prevent us from having to rewrite complex parsers.
@@ -70,5 +70,6 @@ Reusing software isn’t cheating—it’s how the experts program.
 #### Indexed FASTA Files
 index the FASTA file
     samtools faidx testfile.fa
+    
 access the subsequence for a particular region
     samtools faidx testfile.fa <region>
