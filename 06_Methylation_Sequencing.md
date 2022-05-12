@@ -98,3 +98,26 @@ bismark2report
 ```
 deduplicate_bismark NA12878-20200324-L01.bam
 ```
+#### Methylation extraction
+```
+bismark_methylation_extractor --bedGraph --gzip NA12878-20200324-L01.deduplicated.sam
+```
+
+```diff
+CpG_OT_NA12878-20200324-L01.deduplicated.txt.gz
+CpG_OB_NA12878-20200324-L01.deduplicated.txt.gz
+CpG_CTOT_NA12878-20200324-L01.deduplicated.txt.gz
+CpG_CTOB_NA12878-20200324-L01.deduplicated.txt.gz
+CHH_OT_NA12878-20200324-L01.deduplicated.txt.gz
+CHH_OB_NA12878-20200324-L01.deduplicated.txt.gz
+CHH_CTOT_NA12878-20200324-L01.deduplicated.txt.gz
+CHH_CTOB_NA12878-20200324-L01.deduplicated.txt.gz
+CHG_OT_NA12878-20200324-L01.deduplicated.txt.gz
+CHG_OB_NA12878-20200324-L01.deduplicated.txt.gz
+CHG_CTOT_NA12878-20200324-L01.deduplicated.txt.gz
+CHG_CTOB_NA12878-20200324-L01.deduplicated.txt.gz
+NA12878-20200324-L01.deduplicated_splitting_report.txt
+NA12878-20200324-L01.deduplicated.M-bias.txt
+NA12878-20200324-L01.deduplicated.bismark.cov.gz
+NA12878-20200324-L01.deduplicated.bedGraph.gz
+```
