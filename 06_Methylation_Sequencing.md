@@ -35,12 +35,13 @@ Faults in correct DNA methylation may result in
 ![image](https://user-images.githubusercontent.com/104820908/168039076-dd98c6a0-d9cd-4945-9955-303ee542926b.png)
 
 #### Part I : Intitial QC - What does QC tell you about your library?
-- # of sequences
+- #of sequences
 - Basecall qualities
 - Base composition
 - Potential contaminants
 - Expected duplication rate
 
+**Imortant to trim because failre to do so might result in**
 ``` diff
 - Low mapping efficiency
 + Mis-alignments
