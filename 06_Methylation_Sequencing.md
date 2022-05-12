@@ -148,6 +148,26 @@ NA12878-20200324-L01_SE_report.html
 samtools view NA12878-20200324-L01.bam | wc -l
 23106639
 
+samtools view NA12878.dedup.bam | wc -l
+2099954
+
 wc -l C*
 49862706 total
+
 ```
+
+**Reads summary for Bismark Methylation Extraction**
+| file_name        | Total line No | Uniq line No |
+|-----------------:|--------------:|-------------:|
+|CHG_CTOB_NA12878  |               |              |
+|CHG_CTOT_NA12878
+|CHG_OB_NA12878
+CHG_OT_NA12878
+CHH_CTOB_NA12878
+CHH_CTOT_NA12878
+CHH_OB_NA12878
+CHH_OT_NA12878
+CpG_CTOB_NA12878
+CpG_CTOT_NA12878
+CpG_OB_NA12878
+CpG_OT_NA12878
