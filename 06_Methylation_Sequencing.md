@@ -103,9 +103,17 @@ deduplicate_bismark NA12878-20200324-L01.bam
 bismark_methylation_extractor --bedGraph --gzip NA12878-20200324-L01.deduplicated.sam
 ```
 
+This commond
+- generates strand and context specific cytosine output files
+- counts overlapping parts of read pairs only once
+- generates an M-bias report
+- produces a bedGraph and coverage file
+- generates an overall count report for (splitting report)
+
+**Output files**
 ```diff
--CpG_OT_NA12878-20200324-L01.deduplicated.txt.gz
-- CpG_OB_NA12878-20200324-L01.deduplicated.txt.gz
+CpG_OT_NA12878-20200324-L01.deduplicated.txt.gz
+CpG_OB_NA12878-20200324-L01.deduplicated.txt.gz
 CpG_CTOT_NA12878-20200324-L01.deduplicated.txt.gz
 CpG_CTOB_NA12878-20200324-L01.deduplicated.txt.gz
 CHH_OT_NA12878-20200324-L01.deduplicated.txt.gz
@@ -120,4 +128,14 @@ NA12878-20200324-L01.deduplicated_splitting_report.txt
 NA12878-20200324-L01.deduplicated.M-bias.txt
 NA12878-20200324-L01.deduplicated.bismark.cov.gz
 NA12878-20200324-L01.deduplicated.bedGraph.gz
+```
+
+#### Bismark HTML report
+```
+bismark2report
+```
+
+**Output file**
+```
+NA12878-20200324-L01_SE_report.html
 ```
