@@ -104,8 +104,8 @@ bismark_methylation_extractor --bedGraph --gzip NA12878-20200324-L01.deduplicate
 ```
 
 ```diff
-CpG_OT_NA12878-20200324-L01.deduplicated.txt.gz
-CpG_OB_NA12878-20200324-L01.deduplicated.txt.gz
+-CpG_OT_NA12878-20200324-L01.deduplicated.txt.gz
+- CpG_OB_NA12878-20200324-L01.deduplicated.txt.gz
 CpG_CTOT_NA12878-20200324-L01.deduplicated.txt.gz
 CpG_CTOB_NA12878-20200324-L01.deduplicated.txt.gz
 CHH_OT_NA12878-20200324-L01.deduplicated.txt.gz
