@@ -159,7 +159,7 @@ wc -l C*
 **Reads summary for Bismark Methylation Extraction**
 | file_name        | Total line No | Uniq line No |
 |-----------------:|--------------:|-------------:|
-|CHG_CTOB_NA12878  |               |              |
+|CHG_CTOB_NA12878  | 6914286       | 984351  |
 |CHG_CTOT_NA12878
 |CHG_OB_NA12878
 CHG_OT_NA12878
