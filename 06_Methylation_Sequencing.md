@@ -139,3 +139,15 @@ bismark2report
 ```
 NA12878-20200324-L01_SE_report.html
 ```
+
+---
+
+## Visualising and Exploring BS-Seq Data
+
+```
+samtools view NA12878-20200324-L01.bam | wc -l
+23106639
+
+wc -l C*
+49862706 total
+```
