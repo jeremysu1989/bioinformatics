@@ -91,6 +91,10 @@ bismark2report
 - Bismark
 - Bowtie2
 
-## Exerciese outline
+#### Exerciese outline
 ![image](https://user-images.githubusercontent.com/104820908/168051685-d9f0fa4e-8158-4f5f-96ca-9b27ec694bf7.png)
 
+#### Deduplication
+```
+deduplicate_bismark NA12878-20200324-L01.bam
+```
