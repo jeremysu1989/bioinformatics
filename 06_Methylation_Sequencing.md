@@ -80,8 +80,7 @@ bismark2report
 
 #### Useful links
 
-![image](https://user-images.githubusercontent.com/104820908/168042032-7210c0b3-142c-4f51-9fcb-37fd5cf2bf5e.png)
-
+![image](https://user-images.githubusercontent.com/104820908/168083820-653504ac-5f31-435f-9f89-abd9ce41d432.png)
 ---
 
 ## Exercises: QC and Mapping of BS-Seq data
