@@ -1,10 +1,11 @@
-##Analysing bisulfite methylation sequencing data
+## Analysing bisulfite methylation sequencing data
 
 ---
 
 ### Bisulfite-Seq theory and Quality Control
 
 #### Distribution of CG
+
 · CpG dinuleotides are not evenly distributed
 · Most occurwithin high density regions called CpG Islands
 
