@@ -1,7 +1,5 @@
 ## Analysing bisulfite methylation sequencing data
 
----
-
 ### Bisulfite-Seq theory and Quality Control
 
 #### Distribution of CG
@@ -48,3 +46,42 @@ Faults in correct DNA methylation may result in
 ! Errros in methylation cals since adapters are methylated
 # Basecall errors tend toward 50%(C:mC)
 ```
+#### PartII : Sequence alignment - Bismark primary alignment output (BAM file)
+- chromosome
+- position
+- sequence
+- quality
+- methylation call
+
+#### Sequence duplicaiton
+![image](https://user-images.githubusercontent.com/104820908/168040635-372105e8-0f71-43a4-a79e-034fc6f0ddbb.png)
+
+#### Part III : Mapped QC - Methylation bias
+**M-Bias Plot** good opportunity to look at conversion efficiency
+
+#### Bismark workflow
+**Pre Alignment**
+
+FastQC
+
+Trim Galore
+
+**Alignment**
+
+Bismark
+
+**Post Alignment**
+
+Deduplication
+
+Methylation extractor
+
+bismark2report
+
+#### Useful links
+
+![image](https://user-images.githubusercontent.com/104820908/168042032-7210c0b3-142c-4f51-9fcb-37fd5cf2bf5e.png)
+
+---
+
+## 
