@@ -151,6 +151,7 @@ https://blog.csdn.net/yxtxiaotian/article/details/69568774?spm=1001.2101.3001.66
 
 #### paste函数，两个文件按行合并，按列合并，必须确保两个文件的行数相等
 paste -d* file1 file2 可以让两个文件合并的时候中间插入*
+
 paste -s file1 file2 可以让两个文件合并时生成两行
 ```
 wc -l * | sed '$d' > file_line.txt
