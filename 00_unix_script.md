@@ -151,14 +151,32 @@ https://blog.csdn.net/yxtxiaotian/article/details/69568774?spm=1001.2101.3001.66
 
 #### paste函数，两个文件按行合并，按列合并，必须确保两个文件的行数相等
 ```
-wc -l * > file_line.txt
+wc -l * | sed '$d' > file_line.txt
 awk '{print $1 $2}' CHECKSUM > checksum.txt
 wc -l file_line.txt checksum.txt
-# 56 file_line.txt
+# 55 file_line.txt
 # 55 checksum.txt
-# 111 total
+# 110 total
+paste file_line.txt checksum.txt
+     # 121 README	117755
+     # 335 Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.I.fa.gz	3326870
+     # 1075 Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.II.fa.gz	13070249
+     # 403 Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.III.fa.gz	4414597
+     # ...
+     # total 55
+
+paste file_line.txt checksum.txt > result.txt
 
 ```
+|-----:|-----:|-----:|
+|117755|README|121|
+|3326870|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.I.fa.gz|335|
+|13070249|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.II.fa.gz|1075|
+|4414597|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.III.fa.gz|403|
+|05312465|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.IV.fa.gz|2008|
+
+
+
 
 ## 服务器和本地之间文件传输
 所有的请求都是从本地电脑发出的
