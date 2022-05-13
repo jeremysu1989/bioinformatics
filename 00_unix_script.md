@@ -69,6 +69,10 @@ summary statistics about our plain-text data files.
     awk "NR >=2 && NR <= 5" testfile
 #### gtf文件转化为bed文件
     awk '!/^#/ { print $1 "\t" $4-1 "\t" $5 }' testfile
+#### awk求某一列数字的和
+    awk '{sum+=$5} END{print sum}'
+#### awk计算指定行的和
+    awk 'NR==3{for(i=1;i<=NF;i++)sum=sum+$i;}END{print sum}'
 #### awk还有很多自带的函数功能，可以慢慢研究
 
 ---
