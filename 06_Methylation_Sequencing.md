@@ -140,6 +140,9 @@ bismark2report
 NA12878-20200324-L01_SE_report.html
 ```
 
+**M-bias plot**
+This plot shows the average percentage methylation and coverage across reads.
+
 ---
 
 ## Visualising and Exploring BS-Seq Data
