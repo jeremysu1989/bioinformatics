@@ -56,7 +56,7 @@ seq :TTTGGTATTTTTGTTTGGGGGGTATGTATGTGATAGTATTGTGAGATGTTGGAGTTGGAGTATTTTATGTTGTAG
 XM:Z:...........z..x...........h.z.z.....h....z....z.x.....xz....h.hhh.....z.x.....x...h.......hx..hh.h...h..........z.h.hh..z...h.......x...z...h...hh..h.......................h...
 ```
 
-#### 添加其他field数据的输出
+#### 添加其他field数据的输出,使用length()输出序列长度
 ```
 bioawk -c sam '{if($2==0) print length($seq)"bp" "\n" "seq :" $seq "\n" $14}' NA12878.sam | head -n9
 
