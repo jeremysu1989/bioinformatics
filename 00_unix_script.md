@@ -168,7 +168,8 @@ paste file_line.txt checksum.txt
 paste file_line.txt checksum.txt > result.txt
 
 ```
-|-----:|-----:|-----:|
+|Good |Bette|bad. |
+|-----|-----|-----|
 |117755|README|121|
 |3326870|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.I.fa.gz|335|
 |13070249|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.II.fa.gz|1075|
