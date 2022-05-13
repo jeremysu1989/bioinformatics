@@ -24,4 +24,6 @@ gff:
 	1:seqname 2:source 3:feature 4:start 5:end 6:score 7:filter 8:strand 9:group 10:attribute 
 fastx:
 	1:name 2:seq 3:qual 4:comment
+
+man bioawk # for more help
 ```
