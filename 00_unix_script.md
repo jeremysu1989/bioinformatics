@@ -149,6 +149,17 @@ https://blog.csdn.net/qq_41945905/article/details/110489607?utm_medium=distribut
 
 https://blog.csdn.net/yxtxiaotian/article/details/69568774?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4.pc_relevant_antiscanv2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4.pc_relevant_antiscanv2&utm_relevant_index=9
 
+#### paste函数，两个文件按行合并，按列合并，必须确保两个文件的行数相等
+```
+wc -l * > file_line.txt
+awk '{print $1 $2}' CHECKSUM > checksum.txt
+wc -l file_line.txt checksum.txt
+# 56 file_line.txt
+# 55 checksum.txt
+# 111 total
+
+```
+
 ## 服务器和本地之间文件传输
 所有的请求都是从本地电脑发出的
 #### download file over SSH protocol
