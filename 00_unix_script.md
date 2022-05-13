@@ -169,7 +169,7 @@ paste file_line.txt checksum.txt > result.txt
 awk '{print "\|"$3"\|"$2"\|"$1"\|"}' result.txt
 ```
 You can use this result to generate table
-|Good |Bette|bad. |
+|Checksum |File_name|Line_No|
 |-----|-----|-----|
 |117755|README|121|
 |3326870|Saccharomyces_cerevisiae.R64-1-1.dna.chromosome.I.fa.gz|335|
