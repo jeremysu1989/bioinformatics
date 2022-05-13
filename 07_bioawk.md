@@ -27,3 +27,22 @@ fastx:
 
 man bioawk # for more help
 ```
+
+#### 查看sam文件中每个碱基的甲基化状态
+```
+bioawk -c sam '{print "seq :"$seq "\n" $14}' NA12878.sam | head -n8
+seq :ACAAATCTATCACCCTATTAACCACTCACAAAAACTCTCCATACATTTAATATTTTCATCTAAAAAATATACACACAATAACATTACAAAACACTAAAACCAAAACACCC
+XM:Z:...xh........................zxh.h........h.....hh.......z...xhhhhh.h.h...z.z...h....h.z.h..z..xh.h..zx.h.....
+seq :TCACCCTATTAACCACTCACAAAAACTCTCCATACATTTAATATTTTCATCTAAAAAATATACACACAATAACATTACAAAACACTAAAACCAAAACACCACTA
+XM:Z:....................zxh.h........h.....hh.......z...xhhhhh.h.h...z.z...h....h.z.h..z..xh.h..zx.h........
+seq :CACCCTATTAACCACTCACAAAAACTCTCCATACATTTAATATTTTCATCTAAAAAATATACACACAATAACATTACAAAACACTAAAACCAAAACACCCTATATCACA
+XM:Z:...................zxh.h........h.....hh.......z...xhhhhh.h.h...z.z...h....h.z.h..z..xh.h..zx.h........h..z..
+seq :ACCCTATTAACCACTCACGAAAACTCTCCATACATTTAATATTTTCATCTAGAAAATATACACACAATAACATTACAAAACACTAAAACCAAAACACCC
+XM:Z:..................Zxh.h........h.....hh.......z...xHhhhh.h.h...z.z...h....h.z.h..z..xh.h..zx.h.....
+
+
+
+
+
+
+```
