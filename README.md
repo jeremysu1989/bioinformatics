@@ -20,7 +20,7 @@ To learn bioawk ***haven't done***
 
 To use for loop in shell 
 
-To check the completeness of all files downloaded from website, use shell script *partial finished, for loop to download dataset from ensemble*
+To check the completeness of all files downloaded from website, use shell script *partial finished, for loop to download dataset from ensemble*  **Finished all** 20220513
 
 
 ### 20220509
