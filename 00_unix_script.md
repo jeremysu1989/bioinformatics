@@ -166,8 +166,9 @@ paste file_line.txt checksum.txt
      # total 55
 
 paste file_line.txt checksum.txt > result.txt
-
+awk '{print "\|"$3"\|"$2"\|"$1"\|"}' result.txt
 ```
+You can use this result to generate table
 |Good |Bette|bad. |
 |-----|-----|-----|
 |117755|README|121|
