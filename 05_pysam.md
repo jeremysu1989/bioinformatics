@@ -241,11 +241,26 @@ with pysam.FastxFile("NA12878_R1.fq") as R2, open("umi_index.txt", mode='w') as 
 
 ### 1.2.6 HTSFile
 
-## Working with BAM/CRAM/SAM-formatted files
+## 1.3 Working with BAM/CRAM/SAM-formatted files
+### 1.3.1 Opening a file
 
+### 1.3.2 Fetching reads mapped to a region
+Reads are obtained through a call to the pysam.AlignmentFile.fetch() method which returns an iterator.
+Each call to the iterator will returns a pysam.AlignedSegment object
+```
+samfile = pysam.AlignmentFile("NA12878.dedup.sort.bam")
+iter = samfile.fetch("chr1", 10000,10005)
+for x in iter:
+    print(x)
 
+A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	16	#1	10001	40	147M	*	0	0	TAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAAA	array('B', [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 36, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 36, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37])	[('NM', 1), ('MD', '146C0'), ('XM', '...................................................................................................................................................'), ('XR', 'GA'), ('XG', 'GA')]
+A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	0	#1	10002	40	122M	*	0	0	AACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCAACCCCAACCCTAAA	array('B', [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40])	[('NM', 2), ('MD', '112T8C0'), ('XM', '..HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH..HHH...HHH....'), ('XR', 'CT'), ('XG', 'CT')]
+A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT	0	#1	10005	31	105M	*	0	0	CCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCCTAACCTA	array('B', [40, 40, 37, 40, 37, 40, 40, 40, 40, 40, 37, 40, 40, 37, 37, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 37, 40, 37, 40, 37, 40, 37, 40, 37, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 22, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 37, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 40, 40, 37, 40, 40, 40, 40, 40, 37, 37])	[('NM', 1), ('MD', '103C1'), ('XM', 'HH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHH...HHh.'), ('XR', 'CT'), ('XG', 'CT')]
+```
+### 1.3.3 Using the pileip-engine
+In contrast to **fetching**, the **pileup** engine returns for each base in the **reference** sequence the reads that map to that particular position. In the typical view of reads stacking vertically on top of the reference sequence similar to a multiple alignment, **fetching** iterates over the rows of this implied multiple alignment while a **pileup** iterates over the **columns**.
 
-
+Calling **pileup()** will return an iterator over each **column** (reference base) of a specified region. 
 
 
 
