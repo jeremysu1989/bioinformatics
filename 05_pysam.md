@@ -123,4 +123,98 @@ get_index_statistics()
 samfile.get_index_statistics()
 [IndexStats(contig='chrM', mapped=2660, unmapped=0, total=2660), IndexStats(contig='chr1', mapped=179807, unmapped=0, total=179807), IndexStats(contig='chr2', mapped=164021, unmapped=0, total=164021), IndexStats(contig='chr3', mapped=122274, unmapped=0, total=122274), IndexStats(contig='chr4', mapped=101099, unmapped=0, total=101099), IndexStats(contig='chr5', mapped=109653, unmapped=0, total=109653), IndexStats(contig='chr6', mapped=105867, unmapped=0, total=105867), IndexStats(contig='chr7', mapped=111435, unmapped=0, total=111435), IndexStats(contig='chr8', mapped=96166, unmapped=0, total=96166), IndexStats(contig='chr9', mapped=89889, unmapped=0, total=89889), IndexStats(contig='chr10', mapped=103360, unmapped=0, total=103360), IndexStats(contig='chr11', mapped=105766, unmapped=0, total=105766), IndexStats(contig='chr12', mapped=93296, unmapped=0, total=93296), IndexStats(contig='chr13', mapped=54973, unmapped=0, total=54973), IndexStats(contig='chr14', mapped=65766, unmapped=0, total=65766), IndexStats(contig='chr15', mapped=65136, unmapped=0, total=65136), IndexStats(contig='chr16', mapped=84453, unmapped=0, total=84453), IndexStats(contig='chr17', mapped=89884, unmapped=0, total=89884), IndexStats(contig='chr18', mapped=48904, unmapped=0, total=48904), IndexStats(contig='chr19', mapped=81668, unmapped=0, total=81668), IndexStats(contig='chr20', mapped=61529, unmapped=0, total=61529), IndexStats(contig='chr21', mapped=30159, unmapped=0, total=30159), IndexStats(contig='chr22', mapped=49017, unmapped=0, total=49017), IndexStats(contig='chrX', mapped=82231, unmapped=0, total=82231), IndexStats(contig='chrY', mapped=941, unmapped=0, total=941), IndexStats(contig='chrLAM', mapped=0, unmapped=0, total=0)]
 
+samfile.get_reference_length('chr1')
+# return reference length corresponding to numerical tid
+249250621
+
+samfile.get_reference_name(24)
+# return reference name corresponding to numerical tid
+'chrY'
+samfile.get_reference_name(23)
+'chrX'
+samfile.get_reference_name(22)
+'chr22'
+samfile.get_reference_name(0)
+'chrM'
+
+samfile.get_tid('chr1')
+1
+
+samfile.getrname(2)
+'chr2'
+
+samfile.gettid('chr4')
+4
+
+samfile.has_index()
+True
+
+samfile.head(1)
+<pysam.libcalignmentfile.IteratorRowHead object at 0x101bbaac8>
+samfile.head(2)
+<pysam.libcalignmentfile.IteratorRowHead object at 0x101bbaa58>
+
+samfile.is_valid_reference_name('chr1')
+True
+
+samfile.is_valid_tid(3)
+True
+
+samfile.lengths
+(16571, 249250621, 243199373, 198022430, 191154276, 180915260, 171115067, 159138663, 146364022, 141213431, 135534747, 135006516, 133851895, 115169878, 107349540, 102531392, 90354753, 81195210, 78077248, 59128983, 63025520, 48129895, 51304566, 155270560, 59373566, 48502)
+
+samfile.references
+('chrM', 'chr1', 'chr2', 'chr3', 'chr4', 'chr5', 'chr6', 'chr7', 'chr8', 'chr9', 'chr10', 'chr11', 'chr12', 'chr13', 'chr14', 'chr15', 'chr16', 'chr17', 'chr18', 'chr19', 'chr20', 'chr21', 'chr22', 'chrX', 'chrY', 'chrLAM')
+
+samfile.mapped
+# int with total number of mapped alignments according to the statistics recorded in the index
+2099954
+
+samfile.nocoordinate
+# int with total number of reads without coordinates according to the statistics recorded in the index
+0
+
+samfile.nreferences
+# int with the number of reference sequences in the file
+26
+
+samfile.pileup('chr1',10000,10005)
+# perform a pileup within a region
+<pysam.libcalignmentfile.IteratorColumnRegion object at 0x101abf480>
+
+
+
+
+
 ```
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
