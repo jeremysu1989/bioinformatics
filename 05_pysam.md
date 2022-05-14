@@ -217,7 +217,22 @@ Random access to fasta formatted files that have been indexed by faidx
 Stream access to fasta or fastq formatted files
 
 ```
+# two different way to load a file
+fastq="NA12878_R0.fq"
+Reads = pysam.FastxFile(fastq)
+for id in Reads:
+    print(id.name)
+# another way to load
+with pysam.FastxFile("NA12878_R0.fq") as fh:
+    for entry in fh:
+    	print(entry.name)
+```
 
+extract the umi and index info from fastq
+```
+with pysam.FastxFile("NA12878_R1.fq") as R2, open("umi_index.txt", mode='w') as fout:
+    for entry in R2:
+        fout.write(str(entry) + '\n')
 ```
 
 ### 1.2.5 VCF/BCF files
