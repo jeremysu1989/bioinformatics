@@ -40,6 +40,9 @@ for pileupcolumn in samfile.pileup('chr1', 10000, 10005):
     for pileupread in pileupcolumn.pileups:
         if not pileupread.is_del and not pileupread.is_refskip:                                     
             print('\tbase in read %s = %s' % (pileupread.alignment.query_name,pileupread.alignment.query_sequence[pileupread.query_position]))
+samfile.close()
+
+# The above code outputs:
 
 coverage at base 10000 = 1
 	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = T
