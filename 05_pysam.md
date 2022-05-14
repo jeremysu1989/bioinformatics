@@ -262,7 +262,52 @@ A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCA
 In contrast to **fetching**, the **pileup** engine returns for each base in the **reference** sequence the reads that map to that particular position. In the typical view of reads stacking vertically on top of the reference sequence similar to a multiple alignment, **fetching** iterates over the rows of this implied multiple alignment while a **pileup** iterates over the **columns**.
 
 Calling **pileup()** will return an iterator over each **column** (reference base) of a specified region. 
+```
+import pysam
+samfile = pysam.AlignmentFile("NA12878.dedup.sort.bam","rb")
+outfile = open("base_position.txt", mode='w')
+for read in samfile.pileup('chr1', 10000, 10005):
+     outfile.write("\ncoverge at base %s = %s" % (read.pos, read.n))
+     for base in read.pileups:
+          outfile.write("\tbase in read %s = %s" % (base.alignment.query_name,base.alignment.query_sequence[base.query_position]))
+outfile.close()
+samfile.close()
 
+less base_position.txt 
+coverge at base 10000 = 1       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = T
+coverge at base 10001 = 2       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+coverge at base 10002 = 2       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+coverge at base 10003 = 2       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+coverge at base 10004 = 3       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C  base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = C
+coverge at base 10005 = 3       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C  base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = C
+coverge at base 10006 = 3       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = T  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = T  base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = T
+coverge at base 10007 = 3       base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A  base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A  base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = A
+...
+```
 
+### 1.3.4 Creating BAM/CRAM/SAM files from scratch
+```
+import pysam
+header = { 'HD': {'VN': '1.0'},
+           'SQ': [{'LN': 1575, 'SN': 'chr1'},
+                  {'LN': 1584, 'SN': 'chr2'}] }
+with pysam.AlignmentFile("created_test.bam", "wb", header=header) as outf:
+     a = pysam.AlignedSegment()
+     a.query_name = "read_28833_29006_6945"
+     a.query_sequence="AGCTTAGCTAGCTACCTATATCTTGGTCTTGGCCG"
+     a.flag = 99
+     a.reference_id = 0
+     a.reference_start = 32
+     a.mapping_quality = 20
+     a.cigar = ((0,10), (2,1), (0,25))
+     a.next_reference_id = 0
+     a.next_reference_start=199
+     a.template_length=167
+     a.query_qualities = pysam.qualitystring_to_array("<<<<<<<<<<<<<<<<<<<<<:<9/,&,22;;<<<")
+     a.tags = (("NM", 1),
+               ("RG", "L1"))
+     outf.write(a)
 
-
+samtools view created_test.bam 
+read_28833_29006_6945	99	chr1	33	20	10M1D25M	=	200	167	AGCTTAGCTAGCTACCTATATCTTGGTCTTGGCCG	<<<<<<<<<<<<<<<<<<<<<:<9/,&,22;;<<<	NM:i:1	RG:Z:L1
+```
