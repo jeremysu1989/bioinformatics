@@ -37,7 +37,33 @@ import pysam
 samfile = pysam.AlignmentFile("NA12878.dedup.sort.bam","rb")
 for pileupcolumn in samfile.pileup('chr1', 10000, 10005):
     print("\ncoverage at base %s = %s" % (pileupcolumn.pos, pileupcolumn.n))
-        for pileupread in pileupcolumn.pileups:
-                if not pileupread.is_del and not pileupread.is_refskip:
-                        print('\tbase in read %s = %s' % (pileupread.alignment.query_name,pileupread.alignment.query_sequence[pileupread.query_position]))
+    for pileupread in pileupcolumn.pileups:
+        if not pileupread.is_del and not pileupread.is_refskip:                                     
+            print('\tbase in read %s = %s' % (pileupread.alignment.query_name,pileupread.alignment.query_sequence[pileupread.query_position]))
+
+coverage at base 10000 = 1
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = T
+
+coverage at base 10001 = 2
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+	base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+
+coverage at base 10002 = 2
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+	base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = A
+
+coverage at base 10003 = 2
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+	base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+
+coverage at base 10004 = 3
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+	base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+	base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = C
+
+coverage at base 10005 = 3
+	base in read A00265:368:H3M7FDSXY:3:2569:7093:19914:TACGGGTAAGCGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+	base in read A00265:368:H3M7FDSXY:3:2475:13991:6464:AAGCTGTCTCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT = C
+	base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = C
+...
 ```
