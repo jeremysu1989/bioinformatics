@@ -16,7 +16,7 @@ for i in $(awk '{print $3}' CHECKSUMS); do wget -c  http://ftp.ensembl.org/pub/r
 Record Everyday Using Unix Script.  Record them in unix.sh
 
 ### 20220506
-To learn bioawk ***haven't done***
+To learn bioawk ***haven't done*** **Finished at 20220514**
 
 To use for loop in shell 
 
