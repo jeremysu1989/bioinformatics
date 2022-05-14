@@ -232,7 +232,9 @@ extract the umi and index info from fastq
 ```
 with pysam.FastxFile("NA12878_R1.fq") as R2, open("umi_index.txt", mode='w') as fout:
     for entry in R2:
-        fout.write(str(entry) + '\n')
+        fout.write(str(entry.comment) + '\n')
+	# or
+	# fout.write(str(entry.comment) + "UMI_index" + str(len(entry.sequence)) + '\n')
 ```
 
 ### 1.2.5 VCF/BCF files
