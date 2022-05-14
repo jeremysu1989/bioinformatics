@@ -1,5 +1,5 @@
 ## Pysam
-### Introduction
+### 1.1 Introduction
 Pysam is a python module that makes it easy to read and manipulate mapped short read sequence data stored in SAM/BAM files
 
 To use the model to read a file in BAM format, creat a ***AlignmentFile*** object:
@@ -77,3 +77,10 @@ pysam.sort("-o", "output.bam", "ex1.bam")
 # corresponds to the commond line:
 samtools sort -o output.bam ex1.bam
 ```
+
+## 1.2 API (Application Programming Interface)
+### 1.2.1 SAM/BAM/CRAM files
+Objects of type *AlignmentFile* allow working with BAM/SAM formatted files.
+
+**Class** pysam.**AlignmentFile**
+	AlignmentFile(filepath_or_object, mode=None. template=None, reference_name=None, ...)
