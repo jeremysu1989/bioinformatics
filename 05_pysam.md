@@ -196,19 +196,29 @@ class representing an aligned segment
 
 A pileup of reads at a particular reference sequence position (column). A pileup column contains all the reads that map to a certain target base.
 
-### Tabix files
+### 1.2.2 Tabix files
+
 *TabixFile* opens tabular files that have been indexed with **tabix**
 
 **Class** pysam.**TabixFile**
+
 Random access to bgzf formatted files that have been indexed by tabix
 
-### FASTA files
+### 1.2.3 FASTA files
+
 **Class** pysam.**FastaFile**
+
 Random access to fasta formatted files that have been indexed by faidx
 
+### 1.2.4 FASTQ files
 
+**Class** pysam.**FastxFile**
 
+Stream access to fasta or fastq formatted files
 
+```
+
+```
 
 
 
