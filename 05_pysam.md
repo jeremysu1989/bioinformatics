@@ -202,7 +202,9 @@ A pileup of reads at a particular reference sequence position (column). A pileup
 **Class** pysam.**TabixFile**
 Random access to bgzf formatted files that have been indexed by tabix
 
-
+### FASTA files
+**Class** pysam.**FastaFile**
+Random access to fasta formatted files that have been indexed by faidx
 
 
 
