@@ -220,8 +220,11 @@ Stream access to fasta or fastq formatted files
 
 ```
 
+### 1.2.5 VCF/BCF files
 
+### 1.2.6 HTSFile
 
+## Working with BAM/CRAM/SAM-formatted files
 
 
 
