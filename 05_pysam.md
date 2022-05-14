@@ -311,3 +311,14 @@ with pysam.AlignmentFile("created_test.bam", "wb", header=header) as outf:
 samtools view created_test.bam 
 read_28833_29006_6945	99	chr1	33	20	10M1D25M	=	200	167	AGCTTAGCTAGCTACCTATATCTTGGTCTTGGCCG	<<<<<<<<<<<<<<<<<<<<<:<9/,&,22;;<<<	NM:i:1	RG:Z:L1
 ```
+
+### 1.3.5 Using streams
+
+### 1.3.6 Using samtools commands within python
+
+Commands available in samtools are available as simple function calls. Command line options are provided as arguments
+```
+pysam.sort("-o", "output.bam", "ex1.bam")
+# corresponds to the command line
+samtools sort -o output.bam ex1.bam
+```
