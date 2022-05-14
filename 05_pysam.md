@@ -70,3 +70,10 @@ coverage at base 10005 = 3
 	base in read A00265:368:H3M7FDSXY:3:1206:7961:18317:ACTTGAAACGGACTCCTTAC_1:N:0:ACACTAAG+ATCCATAT = C
 ...
 ```
+
+Commonds available in *samtools* are available as simple function calls.
+```
+pysam.sort("-o", "output.bam", "ex1.bam")
+# corresponds to the commond line:
+samtools sort -o output.bam ex1.bam
+```
