@@ -30,3 +30,9 @@ To learn **GenomicFeatures** and **rtracklayer**.
 To run R script on remote severs
 
 The principle or theory of indexed files in bioinformatics
+
+### 20220513-20220514
+Learn pysam
+
+### 20220515
+Linux Shell scripting tutorial
