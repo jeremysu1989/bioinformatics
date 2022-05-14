@@ -27,7 +27,7 @@ fastx:
 
 man bioawk # for more help
 ```
-
+### 处理sam文件
 #### 查看sam文件中每个碱基的甲基化状态
 ```
 bioawk -c sam '{print "seq :"$seq "\n" $14}' NA12878.sam | head -n8
@@ -69,4 +69,59 @@ XM:Z:.............z..x...........h.z.z.....h....z....z.x.....xz....h.hhh.....z.x
 214bp
 seq :GGGGTTGTATTTTTGTTTGGGGGGTATGTATGTGATAGTATTGTGAGATGTTGGAGTTGGAGTATTTTATGTTGTAGTATTTGTTTTTGATTTTTGTTTTATTTTATTATTTATTGTATTTATGTTTAATATTATAGGTGAATATATTTATTAAAGTGTGTTAATTAATTAATGTTTGTAGGATATAATAATAATAATTGAATGTTTGTATAGT
 XM:Z:.............z..x...........h.z.z.....h....z....z.x.....xz....h.hhh.....z.x.....x...h.......hx..hh.h...h..........z.h.hh..z...h.......x...z...h...hh..h.......................h........h..........h..........x..h.x..x
+```
+#### 输出满足多个条件的sam序列，并转化成fasta
+```
+bioawk -c sam '{if($flag==16 && length($seq)<50) print ">" $qname "\n" revcomp($seq)}' NA12878.sam | head -n10
+>A00265:368:H3M7FDSXY:3:2457:20491:34194:GATATCCATACTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT
+TGTGATATAGGGTGTTTTGGTTTTAGTGTTTTGTAATGTTAT
+>A00265:368:H3M7FDSXY:3:2541:13313:5791:ACAAGTCGGTGGCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT
+TGATGTTTGTGTGGAAAGTGGTTGTGTAGATATTTAATTG
+>A00265:368:H3M7FDSXY:3:1555:26648:18020:AATATTGAGGACCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT
+GTGGTTAGAAGTGGGGGGAGGGGGGGGTTTGGTGGAAATTTTTTGTTA
+>A00265:368:H3M7FDSXY:3:1645:31955:4883:TGATGTACATACCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT
+GTGGTTAGAAGTGGGGGGAGGGGGGGGTTTGGTGGAAATTTTTTGTT
+>A00265:368:H3M7FDSXY:3:1677:28528:21872:AAGGTCTTTAAACTTCTTAT_1:N:0:ACACTAAG+ATCCATAT
+TTTGGGGTTTGGTAGAGATGTGTTTAAGTGTTGTGGTTAGAAGTGGGGG
+```
+#### Get the mean Phred quality score
+```
+bioawk -c sam '{print $qname, meanqual($qual)}' NA12878.sam | head -n5
+A00265:368:H3M7FDSXY:3:1448:32280:17910:GAGTAGTTCCGTCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	39.7545
+A00265:368:H3M7FDSXY:3:2613:19578:6934:GGGTCGTTTGTCCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	39.7885
+A00265:368:H3M7FDSXY:3:2534:15492:31078:AGGTCCCGCAAACTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	40
+A00265:368:H3M7FDSXY:3:2451:9570:31876:ACCGTGAAATCACTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	39.9697
+A00265:368:H3M7FDSXY:3:2415:12237:5494:CCAAATTCTCGCCTTCTTAT_1:N:0:ACACTAAG+ATCCATAT	39.5263
+```
+
+### 处理fasta文件
+#### 截取每一段序列的长度
+```
+bioawk -c fastx '{print $name, length($seq), $3}' Sars_cov_2.dna.toplevel.fa 
+
+MN908947.3	29903
+```
+
+#### 测量fasta序列文件中gc含量
+```
+bioawk -c fastx '{print $name, length($seq), gc($seq)}' Sars_cov_2.dna.toplevel.fa 
+MN908947.3	29903	0.379728
+```
+
+#### 获取所有序列的反向互补链序列
+```
+bioawk -c fastx '{print $seq, revcomp($seq)}' Sars_cov_2.dna.toplevel.fa 
+```
+
+#### convert fasta to tabular format
+```
+bioawk -t -c fastx '{ print $name, $seq }' input.fasta
+```
+
+### For fastq
+Here, the -c fastx option remains same but bioawk will automatically recognize the fastq format and build the required variables, such as $name $seq $qual and $comment
+
+### for bed files
+```
+bioawk -c bed '{ print $end - $start }' test.bed
 ```
