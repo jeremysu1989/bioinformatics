@@ -84,3 +84,22 @@ Objects of type *AlignmentFile* allow working with BAM/SAM formatted files.
 
 **Class** pysam.**AlignmentFile**
 	AlignmentFile(filepath_or_object, mode=None. template=None, reference_name=None, ...)
+
+```
+import pysam
+samfile = pysam.AlignmentFile("NA12878.dedup.sort.bam","rb")
+
+samfile.check_index()
+# return True if index is present
+
+samfile.count(self,contig=None, start=None, stop=None, ...)
+# count the number of reads in region
+samfile.count('chr1', 10000,10005)
+3
+
+samfile.count_coverage(self,contig=None, start=None, stop=None, ...)
+# count the number of reads in region, the coverage is computed per-base [ACGT].
+samfile.count_coverage('chr1',10000,10005)
+(array('L', [0, 2, 2, 0, 0]), array('L', [0, 0, 0, 2, 3]), array('L', [0, 0, 0, 0, 0]), array('L', [1, 0, 0, 0, 0]))
+
+```
