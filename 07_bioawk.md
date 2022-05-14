@@ -120,7 +120,13 @@ bioawk -t -c fastx '{ print $name, $seq }' input.fasta
 
 ### For fastq
 Here, the -c fastx option remains same but bioawk will automatically recognize the fastq format and build the required variables, such as $name $seq $qual and $comment
+```
+#查看fastq文件中每条reads碱基的平均测序质量
+bioawk -c fastx '{print meanqual($qual)}' NA12878_R0.fq | head -n10
 
+#展示fastq文件中reads的ID
+bioawk -c fastx '{print $name}' NA12878_R0.fq | head -n5
+```
 ### for bed files
 ```
 bioawk -c bed '{ print $end - $start }' test.bed
