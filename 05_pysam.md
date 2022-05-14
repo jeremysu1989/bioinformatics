@@ -150,6 +150,7 @@ samfile.has_index()
 True
 
 samfile.head(1)
+# return an iterator over the first n alignments
 <pysam.libcalignmentfile.IteratorRowHead object at 0x101bbaac8>
 samfile.head(2)
 <pysam.libcalignmentfile.IteratorRowHead object at 0x101bbaa58>
@@ -181,26 +182,25 @@ samfile.nreferences
 samfile.pileup('chr1',10000,10005)
 # perform a pileup within a region
 <pysam.libcalignmentfile.IteratorColumnRegion object at 0x101abf480>
-
-
-
-
-
 ```
 
- 
+**Class** pysam.**AlignmentHeader**
 
+header information for a AlignmentFile object
 
+**Class** pysam.**AlignmentSegment**
 
+class representing an aligned segment
 
+**Class** pysam.**AlignmentPileupColumn**
 
+A pileup of reads at a particular reference sequence position (column). A pileup column contains all the reads that map to a certain target base.
 
+### Tabix files
+*TabixFile* opens tabular files that have been indexed with **tabix**
 
-
-
-
-
-
+**Class** pysam.**TabixFile**
+Random access to bgzf formatted files that have been indexed by tabix
 
 
 
