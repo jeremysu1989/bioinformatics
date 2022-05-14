@@ -18,7 +18,12 @@ G 移动到末行
 #### 对于tab分隔的文件，选择性的展示某一列
     cut -f 2 testfile
 #### 使用cut命令，结合-d参数指明delimiter character可以进行分割,例如使用大写S作为分割的字符
+```
     cut -dS -f3 testfile
+    
+    # 读取fastq文件的ID序列，用：进行区域分隔，并输出第4-6和7区域的内容，现实前5行
+    bioawk -c fastx '{print $1}' NA12878_R0.fq | cut -d : -f4-6,7 | head -n5
+```
 #### 对于空格分隔的文件，选择性的展示某一列
     awk -F " " '{print $2}' testfile
 #### 使用colomn命令实现文本文件的表格化展示，-s参数可以设定分隔字符
