@@ -147,6 +147,7 @@ samfile.gettid('chr4')
 4
 
 samfile.has_index()
+# 类似于这样的函数可以用在python中进行条件判断而决定后续脚本是否执行
 True
 
 samfile.head(1)
