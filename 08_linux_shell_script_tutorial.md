@@ -533,14 +533,44 @@ HERE
 This type of redirection tells the shell to read input from the current source (HERE) until a line containg only word (HERE) is seen.
 
 
-
 ## 7. Pipes and filters
-
+#### commonly used filter commands
+```
+awk.   cut.   grep.   gzip.   head.   paste.   perl    
+sed.   sort.  split.  strings.tac.    tail.    tee
+tr.    uniq.  wc.   
+```
 
 ## 8. Traps
 
 
 ## 9. Functions
+- sometimes shell scripts get complicated
+- to avoid large and complicated scripts use functions
+- you divide large scripts into small chunks/entities called **functions**
+- functions make shell script modular and easy to use
+- functions avoid repetitive code
+- function performs a specific task
+- function used like normal command
+- in other high level programming languages function is also known as precedure, method, subrotine or routine
+
+One line functions inside { ... } must end with a semicolon. Otherwise you get an error on screen:
+```
+xrpm() { rpm2cpio "$1" | cpio -idvm; }
+```
+#### writing functions
+```
+name() {
+  command list;
+}
+```
+- you can create a function file
+- all shell functions are tested as a command
+- you must define a function at the start of a script
+- you must load a function file at the start of a script using *source* command
+- you can all funciton like normal command
+
+#### pass arguments into a function
 
 
 ## 10. Interactive Scripts
