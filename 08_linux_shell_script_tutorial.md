@@ -331,6 +331,98 @@ do
   echo
 done
 ```
+
+```
+#!/bin/bash
+# A shell script to verify user password database
+files="/etc/passwd /etc/group /etc/shadow /etc/gshdow"
+for f in $files
+do
+  [ -f $f ] && echo "$f file found" || echo "*** Error - $f file missing."
+done
+```
+
+#### nested for loop statement
+```
+#!/bin/bash
+# A shell script to print each number five times.
+for (( i = 1; i <= 5; i++ )) ### Outer for loop ###
+do
+    for (( j = 1 ; j <= 5; j++ )) ### Inner for loop ###
+    do
+        echo -n "$i "
+    done
+    echo "" #### print the new line ###
+done
+```
+Chessboard example
+```
+#!/bin/bash
+for (( i = 1; i <= 8; i++ )) ### Outer for loop ###
+do
+    for (( j = 1 ; j <= 8; j++ )) ### Inner for loop ###
+    do
+        total=$(( $i + $j)) # total
+        tmp=$(( $total % 2)) # modulus
+        # Find out odd and even number and change the color
+        # alternating colors using odd and even number logic
+        if [ $tmp -eq 0 ];
+        then
+            echo -e -n "\033[47m "
+        else
+            echo -e -n "\033[40m "
+        fi
+    done
+    echo "" #### print the new line ###
+done
+```
+#### The while loop statement
+```
+while [ condition ]
+do
+    command1
+    command2
+    ..
+    ....
+    commandN
+done
+```
+To read a text file line-by-line, use the following syntax
+```
+while IFS= read -r line
+do
+    command1 on $line
+    command2 on $line
+    ..
+    ....
+    commandN
+done < "/path/to/filename"
+```
+OR
+```
+while IFS= read -r field1 filed2 field3 ... fieldN
+do
+    command1 on $field1
+    command2 on $field1 and $field3
+    ..
+    ....
+    commandN on $field1 ... $fieldN
+done < "/path/to dir/file name with space"
+```
+*examples*
+```
+#!/bin/bash
+# set n to 1
+n=1
+# continue until $n equals 5
+while [ $n -le 5 ]
+do
+    echo "Welcome $n times."
+    n=$(( n+1 )) # increments $n
+done
+```
+
+
 ## 6. Shell redirection
 
 
