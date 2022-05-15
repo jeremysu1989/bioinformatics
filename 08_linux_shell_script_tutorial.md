@@ -571,9 +571,64 @@ name() {
 - you can all funciton like normal command
 
 #### pass arguments into a function
+- shell functions have their own command line argument
+- use variable $1, $2, ..., $n to access argument passed to the function
 
+```
+name() {
+  arg1=$1
+  arg2=$2
+  comand on $arg1
+}
+```
+
+#### local variable
+```
+local var=value
+```
+#### Shell functions library
+`
+- you can store all your function in a function files called function library
+- you can load all function into the current script or te command promt
+- the syntax is as follows to load all functions
+
+```
+. /path/to/your/functions.sh
+```
+example
+```
+#!/bin/bash
+# set variables
+declare -r TRUE=0
+declare -r FALSE=1
+declare -r PASSWD_FILE=/etc/passwd
+#######################
+function to_lower()
+{
+      local str="$@"
+      local output
+      output=$(tr '[A-Z]' '[a-z]'<<<"${str}")
+      echo $output
+}
+```
+
+how do i load myfunction.sh into the script
+```
+#!/bin/bash
+# Load the myfunctions.sh
+# My local path is /home/vivek/lsst2/myfunctions.sh
+. /home/vivek/lsst2/myfunctions.sh
+```
+#### source command
+- the source command can be used to load any functions file into the current shell script or command prompt
+- it read and execute commands from given FILENAME and return
+- the pathnames in $PATH are used to find the directory containing FILENAME
 
 ## 10. Interactive Scripts
+#### Menu driven scripts
 
-
+#### bash display dialog boxes
+```
+brew install dialog
+```
 ## 11. Shell scripting help
