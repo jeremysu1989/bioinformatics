@@ -66,13 +66,70 @@ echo "Searching for user..."
 #### Variables in shell
 
 #### Rules for naming variable name
-**Do not put spaces on either side of the equal sign when assigning value to variable**
+*Do not put spaces on either side of the equal sign when assigning value to variable*
 ```
 n=10
 ```
 
-## 4. Conditionals exections(Decision making)
+#### getting user input via keyboard
+You can accept input from the keyboard and assign an input value to a user defined shell variable using read command
+*read command syntxa*
+```
+read -p "prompt" variable1 varaiable2 variableN
+```
 
+#### path name expansion
+```
+{ pattern1, pattern2, patternN }
+text{ pattern1, pattern2, patternN }
+text1{ pattern1, pattern2, patternN }text2
+command something/{ pattern1, pattern2, patternN }
+
+echo file{1..5}.txt
+```
+
+#### changing bash prompt
+```
+# regular colors
+local K="\[\033[0;30m\]" # black
+local R="\[\033[0;31m\]" # red
+local G="\[\033[0;32m\]" # green
+local Y="\[\033[0;33m\]" # yellow
+local B="\[\033[0;34m\]" # blue
+local M="\[\033[0;35m\]" # magenta
+local C="\[\033[0;36m\]" # cyan
+local W="\[\033[0;37m\]" # white
+```
+
+## 4. Conditionals exections(Decision making)
+#### bash strucutred language constructs
+```
+if today is friday
+  execute tar command
+otherwise
+  print an error on screen.
+```
+
+####if structures to execute code based on a condition
+```
+if conditon
+then
+  command1
+  command2
+  ...
+  commandN
+ fi
+ ```
+ OR
+ ```
+ if test var == value
+ then
+   command1
+   command2
+   ...
+   commandN
+ fi
+ ```
 
 ## 5. Bash Loops
 
