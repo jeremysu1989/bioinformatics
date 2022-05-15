@@ -224,6 +224,82 @@ esac
 
 
 ## 5. Bash Loops
+#### the for loop statement
+```
+for var in item1 item2 ... itemN
+do
+        command1
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the for loop numerical explicit list syntax:
+```
+for var in list-of-values
+do
+        command1
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the foor loop explicit file list syntax:
+```
+for var in file1 file2 file3 fileN
+do
+        command1
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the for loop variable's content syntax:
+```
+for var in $fileNames
+do
+        command1
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the for loop command substitution syntax:
+```
+for var in $(Linux-command-name)
+do
+        command1
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the for loop explicit file list using hash arrry syntax:
+```
+# define an array
+ArrayName=(~/.config/*.conf)
+for var in "${ArrayName[@]}"
+do
+        command1 on $var
+        command2
+        ....
+        ...
+        commandN
+done
+```
+the for loop three-expression syntax
+for (( EXP1; EXP2; EXP3 ))
+do
+        command1
+        command2
+        command3
+done
+```
 
 
 ## 6. Shell redirection
