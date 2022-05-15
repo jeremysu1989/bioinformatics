@@ -36,3 +36,6 @@ Learn pysam
 
 ### 20220515
 Linux Shell scripting tutorial
+
+### 20220516
+Finish bioinformatics data skills
