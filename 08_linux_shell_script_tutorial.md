@@ -25,8 +25,43 @@ Each script has purpose
 - 
 
 ## 2. Getting started with shell programming
+#### The role of shells in the linux enviroment
+Shell is used for various prpose under lnux. Linux user enviroment is made of the following components.
+- kernel - The core of linux operating syste,
+- shell - provides an interface between the user and the kernel
+- ternimal emulator - the xterm program is a terminal emulator for the X windows system
+- linux desktop and window manager - linux desktop is collection of various software apps 
 
+#### shebang
+The #! syntas used in scripts to indicate an interpreter for execution under UNIX/linux operating systems
+```
+#!/bin/bash
+OR
+#!/usr/bin/perl
+OR
+#!/usr/bin/python
+```
 
+#### shell commnets
+```
+#!/bin/bash
+# A Simple Shell Script To Get Linux Network Information
+# Vivek Gite - 30/Aug/2009
+echo "Current date : $(date) @ $(hostname)"
+echo "Network configuration"
+/sbin/ifconfig
+```
+multiple line comment
+```
+#!/bin/bash
+echo "Adding new users to LDAP Server..."
+<<COMMENT1
+  Master LDAP server : dir1.nixcraft.net.in
+  Add user to master and it will get sync to backup server too
+  Profile and active directory hooks are below
+COMMENT1
+echo "Searching for user..."
+```
 ## 3. The shell variables and environment
 
 
