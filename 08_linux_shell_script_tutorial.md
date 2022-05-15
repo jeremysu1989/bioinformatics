@@ -293,6 +293,7 @@ do
 done
 ```
 the for loop three-expression syntax
+```
 for (( EXP1; EXP2; EXP3 ))
 do
         command1
@@ -300,8 +301,36 @@ do
         command3
 done
 ```
+*examples*
+```
+#!/bin/bash
+for i in 1 2 3 4 5
+do
+  echo "Welcome $i times."
+done
+```
 
+```
+#!/bin/bash
+# A simple shell script to print list of cars
+for car in bmw ford toyota nissan
+do
+  echo "Value of car is: $car"
+done
+```
 
+```
+#!/bin/bash
+# A simple shell script to run commands
+for command in date pwd df
+do
+  echo
+  echo "*** The output of $command command >"
+  #run command
+  $command
+  echo
+done
+```
 ## 6. Shell redirection
 
 
