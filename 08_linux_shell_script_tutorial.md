@@ -587,7 +587,6 @@ name() {
 local var=value
 ```
 #### Shell functions library
-`
 - you can store all your function in a function files called function library
 - you can load all function into the current script or te command promt
 - the syntax is as follows to load all functions
