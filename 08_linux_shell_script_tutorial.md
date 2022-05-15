@@ -62,6 +62,7 @@ echo "Adding new users to LDAP Server..."
 COMMENT1
 echo "Searching for user..."
 ```
+
 ## 3. The shell variables and environment
 
 
