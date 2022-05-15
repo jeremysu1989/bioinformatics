@@ -421,8 +421,57 @@ do
     n=$(( n+1 )) # increments $n
 done
 ```
+```
+#!/bin/bash
+n=1
+while (( $n <= 5 ))
+do
+    echo "Welcome $n times."
+    n=$(( n+1 ))
+done
+```
+you can read a test file using read command and while loop as follows
+```
+#!/bin/bash
+file=/etc/resolv.conf
+while IFS= read -r line
+do
+    # echo line is stored in $line
+    echo $line
+done < "$file"
 
+#outputs:
+nameserver 127.0.0.1
+nameserver 192.168.1.254
+nameserver 4.2.2.1
+```
+you can store above output in two seperate fields as follows
+```
+#!/bin/bash
+file=/etc/resolv.conf
+while IFS= read -r f1 f2
+do
+    echo "field # 1 : $f1 ==> field #2 : $f2"
+done < "$file"
 
+#outputs
+field # 1 : nameserver ==> field #2 : 127.0.0.1
+field # 1 : nameserver ==> field #2 : 192.168.1.254
+field # 1 : nameserver ==> field #2 : 4.2.2.1
+```
+##### command substitution
+Command substitution is nothing but run a shell command and store it's output to a variable or display back using echo command. 
+```
+NOW=$(date)
+echo "$NOW"
+```
+command substitution and shell loops
+```
+for f in $(ls /etc/*.conf)
+do
+    echo "$f"
+done
+```
 ## 6. Shell redirection
 
 
