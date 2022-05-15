@@ -473,6 +473,12 @@ do
 done
 ```
 ## 6. Shell redirection
+Changing the default path of input or output is called redirection
+- In linux everything is a file
+- Your hardware is also a file
+-  - 0 Input - Keyboard(stdin)
+-  - 1 Output - Screen(stdout)
+-  - 2 Error - Screen(stderr)
 
 
 ## 7. Pipes and filters
