@@ -509,8 +509,28 @@ command > output.file.name
 - 2> is input redirection symbol and syntax is
 ```
 command 2> errors.txt
+```
 
+#### empty file creation
+```
+>newfile.name
+```
 
+### /dev/null discards unwantted output
+All data written o a /dev/null or /dev/zero file is discarded by the system
+```
+command > /dev/null
+```
+### Here documents
+```
+command <<HERE
+text1
+text2
+text3
+$whatever
+HERE
+```
+This type of redirection tells the shell to read input from the current source (HERE) until a line containg only word (HERE) is seen.
 
 
 
