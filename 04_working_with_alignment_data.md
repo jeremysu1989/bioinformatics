@@ -108,3 +108,8 @@ This creates a file named *testfile_sorted.bam.bai*, which contains the indexfor
 ---
 
 #### Creating Your Own SAM/BAM Processing Tools with Pysam
+
+#### wirting a program to record alignment statistics
+```
+TO BE CONTINUED
+```
