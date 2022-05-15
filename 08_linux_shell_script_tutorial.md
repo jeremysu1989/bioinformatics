@@ -476,9 +476,42 @@ done
 Changing the default path of input or output is called redirection
 - In linux everything is a file
 - Your hardware is also a file
-  -  - 0 Input - Keyboard(stdin)
-  -  - 1 Output - Screen(stdout)
-  -  - 2 Error - Screen(stderr)
+  -   0 Input - Keyboard(stdin)
+  -   1 Output - Screen(stdout)
+  -   2 Error - Screen(stderr)
+
+#### standard input
+- standard input is the default input method
+- it is denoted by zero number
+- also known as stdin
+- the default standard input is the keyboard
+- < si input redirection symbol and syntax is 
+```
+command < filename
+```
+
+#### standard putput
+- standard output is used by a command to writes its output
+- the default is the screen
+- it is denoted by one umber
+- also known as stdout
+- the default standard output is the screen
+-  > is output redirection symbol and syntax is
+```
+command > output.file.name
+```
+
+#### standard error
+- standard error is the default error output device, which is used to wirite all system error messages
+- it is denoted by two number
+- also know as stderr
+- the default standard input is the screen or monitor
+- 2> is input redirection symbol and syntax is
+```
+command 2> errors.txt
+
+
+
 
 
 ## 7. Pipes and filters
