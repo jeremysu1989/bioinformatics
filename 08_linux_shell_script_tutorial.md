@@ -22,7 +22,6 @@ Each script has purpose
 - specific purpose
 - act like a command
 - script code usability
-- 
 
 ## 2. Getting started with shell programming
 #### The role of shells in the linux enviroment
@@ -64,7 +63,13 @@ echo "Searching for user..."
 ```
 
 ## 3. The shell variables and environment
+#### Variables in shell
 
+#### Rules for naming variable name
+**Do not put spaces on either side of the equal sign when assigning value to variable**
+```
+n=10
+```
 
 ## 4. Conditionals exections(Decision making)
 
