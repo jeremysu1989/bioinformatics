@@ -667,3 +667,16 @@ then
 ...
 fi
 ```
+
+#### processing files with bash using for loops and globbing
+There are three essential parts to creating a pipeline to process a set of files:
+1. selecting which files to apply the commands to
+2. looping over the data and applying the commands
+3. keeping track of the names of anyout put files created
+
+There are different computational tricks to achieve each of these tasks. Let's first look at the simple ways to select which files to apply commands to:
+- approaches that start with file comtaining information about samples
+- approaches that select files in directories using some criteria
+
+
+
