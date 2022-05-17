@@ -678,5 +678,6 @@ There are different computational tricks to achieve each of these tasks. Let's f
 - approaches that start with file comtaining information about samples
 - approaches that select files in directories using some criteria
 
-
+#### bash array
+数组是包含多个相同或不同数据类型的集合，数组索引从零开始。数组变量可以存放多个值；bash只支持一维数组，初始化时不需要定义数组大小。bash数组用小括号来表示，元素用空格分隔。
 
