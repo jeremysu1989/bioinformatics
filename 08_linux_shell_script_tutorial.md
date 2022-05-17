@@ -640,3 +640,30 @@ brew install dialog
 set -e #设置该选项后，当脚本中任何以一个命令执行返回的状态码不为0时就退出整个脚本
 set -u #设置该选项后，当脚本在执行过程中尝试使用未定义过的变量时，报错并退出运行整个脚本
 ```
+单分支if判断
+```
+if [ condition ]
+then
+  command
+fi
+```
+双分枝if判断
+```
+if [ condition ]
+then
+  command
+else
+  command
+fi
+```
+多分枝if判断
+```
+if [ condition ]
+then
+  command
+elif [ condition ]
+then
+  command
+...
+fi
+```
