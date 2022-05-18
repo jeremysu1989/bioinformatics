@@ -18,6 +18,7 @@ mkdir "${sample}_aln"
 ```
 
 #### Processing Files with Bash using for loops and globbing
+in bioinformatics, most of our data is split across multiple files. At the heart of any processing pipeline is some way to apply the same workflow to each of these files, taking care to keep track of sample names.
 ```
 #!/bin/bash
 set -e
@@ -46,3 +47,4 @@ do
      wc -l $fastq_file > stats/$results_file
 done
 ```
+however, many bioinformatics pipelines combine two or more input fiels into a single output file. When writing script to algin paired-end reads, we can't loop over each file like we did earlier. Instead, each **sample**, rather than each **file**, is the processing unit. Consequently, our loop must iterate over unique samples names, and we use these samples names to re-create the input FASTQ fiels used in alignment.
