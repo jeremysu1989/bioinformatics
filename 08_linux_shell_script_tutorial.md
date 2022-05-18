@@ -693,3 +693,94 @@ echo ${Unix[@]}
 
 for i in ${Unix[@]}; do echo $i; done
 ```
+
+2. 声明时初始化数组 通过指定元素列表来声明数组，就不用一个一个分别初始化数组元素的，用空格隔开在括号里
+```
+declare -a Unix=('2' 'Bob' 3 'Fedora')
+for i in ${Unix[@]}; do echo $i; done
+```
+
+3. 输出整个数组 
+```
+echo ${Unix[@]}
+```
+
+4. Bash数组长度
+```
+echo ${#Unix[@]}
+```
+
+5. 数组第 n 个元素的长度
+```
+echo ${#Unix[2]}
+```
+
+6. 指定偏移和长度输出数组
+```
+echo ${Unix[@]}
+echo ${Unix[@]:1:2}
+```
+
+7. 根据偏移和长度，输出数组指定元素的一部分
+```
+echo ${Unix[3]}
+echo ${Unix[3]:1:2}
+```
+
+8. 搜索和替换数组元素
+```
+echo ${Unix[@]}
+echo ${Unix[@]/Bob/John}
+```
+
+9. 添加元素到已存在的 Bash Array
+```
+echo ${#Unix[@]}
+echo ${Unix[@]}
+Unix=("${Unix[@]}" "Jonny" "Kitty")
+echo ${#Unix[@]}
+echo ${Unix[@]}
+```
+
+10.删除数组元素
+```
+echo "${!Unix[@]}"
+echo "${Unix[2]}"
+unset Unix[2]
+echo "${Unix[2]}"
+echo "${Unix[@]}"
+echo "${!Unix[@]}"
+```
+
+11. 复制数组 扩展数组元素，存储到新的数组中
+```
+Linux=("${Unix[@]}")
+echo "${Linux[@]}"
+echo "${!Linux[@]}"
+```
+
+12. 连接两个 Bash 数组 扩展两个数组，赋值给新数组
+```
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+Shell=('bash' 'csh' 'jsh' 'rsh' 'ksh' 'rc' 'tcsh');
+ 
+UnixShell=("${Unix[@]}" "${Shell[@]}")
+echo ${UnixShell[@]}
+echo ${#UnixShell[@]}
+```
+
+13. 使用 unset 删除整个数组
+```
+echo "${Unix[@]}"
+unset Unix
+echo "${Unix[@]}"
+echo "${#Unix[@]}"
+```
+
+14. 加载文件内容到数组  可以逐行添加文件内容到数组
+```
+for t in "$(cat logfile)"; do echo "$t\n"; done
+
+filecontent=(`cat "logfile"`)
+for t in "${filecontent[@]}"; do echo $t; done
+```
