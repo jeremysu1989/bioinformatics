@@ -48,3 +48,31 @@ do
 done
 ```
 however, many bioinformatics pipelines combine two or more input fiels into a single output file. When writing script to algin paired-end reads, we can't loop over each file like we did earlier. Instead, each **sample**, rather than each **file**, is the processing unit. Consequently, our loop must iterate over unique samples names, and we use these samples names to re-create the input FASTQ fiels used in alignment.
+
+```
+#!/bin/bash
+set -e
+set -u
+set -o pipefail
+
+if [ "$#" -ne 1 ] 
+then 
+     echo "error:  you provided $#, 1 required"
+     echo "usage: pipe_prep.sh samples.txt"
+     exit 1
+fi
+sample_info="$1"
+
+# get the file path
+sample_path=$(dirname `head -n1 samples.txt | cut -d ' ' -f5`)
+
+# get the sample name
+sample_name=$((cut -d ' ' -f 1 "$sample_info") | uniq)
+
+mkdir result
+
+for sample in ${sample_name[@]}
+do
+     paste -d * $sample_path/${sample}_R0.fq $sample_path/${sample}_R1.fq > result/${sample}.res
+done
+```
