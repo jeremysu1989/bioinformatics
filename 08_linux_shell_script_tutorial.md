@@ -784,3 +784,13 @@ for t in "$(cat logfile)"; do echo "$t\n"; done
 filecontent=(`cat "logfile"`)
 for t in "${filecontent[@]}"; do echo $t; done
 ```
+
+#### 参数传递
+```
+#!/bin/bash
+echo "sript name: $0"
+echo "first arg: $1"
+echo "second arg: $2"
+echp "total arg number: $#"
+```
+
