@@ -681,3 +681,15 @@ There are different computational tricks to achieve each of these tasks. Let's f
 #### bash array
 数组是包含多个相同或不同数据类型的集合，数组索引从零开始。数组变量可以存放多个值；bash只支持一维数组，初始化时不需要定义数组大小。bash数组用小括号来表示，元素用空格分隔。
 
+1. 声明数组，为数组赋值
+```
+Unix[1]='Bob'
+echo ${Unix[@]}
+
+Unix[0]=2
+echo ${Unix[0]}
+
+echo ${Unix[@]}
+
+for i in ${Unix[@]}; do echo $i; done
+```
