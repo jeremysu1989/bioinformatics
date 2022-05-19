@@ -76,3 +76,37 @@ do
      paste -d * $sample_path/${sample}_R0.fq $sample_path/${sample}_R1.fq > result/${sample}.res
 done
 ```
+Bash's loops are a handy way of applying commands to numerous files, but have a few downsides. First, compared to the Unix tool *find*, globbing is not a very powerful way to select certain files. Second, Bash's loop syntax is lengthy for simple operations, and a bit archaic. Finally, there's no easy way to parallelize Bash loops in a way that constrains the number of subprocesses used. 
+
+#### Automating File-processing with *find* and *xargs*
+using find and xargs
+*find* 命令是Linux中强大的搜索命令，不仅可以按照文件名搜索文件，还可以按照权限文件大小、时间属性、inode等来搜索文件。
+
+命令格式 
+*find*命令的基本格式为： find 搜索路径 [选项] 搜索内容
+*find*命令具有两个参数：
+1. 第一个参数指定搜索路径
+2. 第二个参数指定搜索内容
+
+按照文件名搜索
+
+支持的选项
+1. -name 按照文件名搜索
+2. -iname 按照文件名搜索，不区分文件名大小写
+3. -inum 按照inode号搜索
+```
+find shell -name *.sh
+find shell -iname *.SH
+```
+
+按照修改时间搜索
+
+支持的选项
+1. -atime [+-] 按照文件访问时间搜索
+2. -mtine [+-] 按照文件数据修改时间搜索
+3. -ctime [+-] 按照文件状态修改时间搜索
+
+这里对+-的含义说明
+1. -5：表示 5 天内修改的文件
+2. 5：表示当前时间之前第 5-6 那一天修改的文件
+3. +5：表示 6 天之前修改的文件
