@@ -198,3 +198,16 @@ do
      program "$filename" &
 done
 ```
+
+when running multiple process in parallel, we want to explicitly limit how many processes run simultaneously. xargs allows us to do this with the option -P <num> where <num> is the number of processes to run simultaneously.
+
+```
+find . -name "*.fastq" | xargs basename -s ".fastq" | \
+     xargs -P 6 -I{} fastq_stat --in {}.fastq --out ../summaries/{}.txt
+```
+generally, fastq_stat could be any program or even a shell script that performs many tastk per sample. The key point is that we provided all information the program or script needs to run through the sample name, which is what replaces the string {}.
+
+The simplest and cleanest trick to get around the limitation is to create a small bash script containing the commands to process a single sample, and have *xargs* run this script in many parralle bash process.
+```
+     
+```
