@@ -189,3 +189,12 @@ find . -name "*.fastq" | xargs basename -s ".fastq" | \
      xargs -I{} fastq_stat --in {}.fastq --out ../summaries/{}.txt
 ```
 Combining *xargs* with **basename** is a powerful idiom used to apply commands to many files in a way that keeps track of which output file was created by a particular input files.
+
+#### xargs and paralleliztion
+we can launch numerous multiple background processes with Bash *for* loop, which on a system with multiple processors would run in parallel:
+```
+for filename in *.fastq
+do
+     program "$filename" &
+done
+```
