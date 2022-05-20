@@ -209,5 +209,22 @@ generally, fastq_stat could be any program or even a shell script that performs 
 
 The simplest and cleanest trick to get around the limitation is to create a small bash script containing the commands to process a single sample, and have *xargs* run this script in many parralle bash process.
 ```
+#!/bin/bash
+set -e
+set -u
+set -o pipefil
+
+sample_name=$(basename -s ".fastq" "$1")
      
+some_program ${sample_name}.fastq | another_program > ${sample_name}-results.txt
+
+# then, run the script
+find . -name "*.fastq" | xargs -n 1 -P 4 bash script.sh
 ```
+
+where -n 1 forces xargs to process one input argument at a time.
+     
+Admittedly, the price of some powerfil *xargs* workflows is complexity. If you find yourself using *xargs* mostly to parallelize tasks or you're writting complicated *xargs* commands that use *basename*, it may be worthwhile to learn **GUN parallel*.*
+     
+#### make and makefile: another option for pipelines
+Make is a useful tool that you should be aware of in case you need an option for simple tasks and workflows. For more information, see the GNU Make documentation.
