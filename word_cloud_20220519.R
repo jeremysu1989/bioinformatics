@@ -57,3 +57,23 @@ wordcloud(words = d$word, freq = d$freq, min.freq = 1,
           max.words=100, random.order=FALSE, rot.per=0.35, 
           colors=brewer.pal(8, "Dark2"))
 
+###############################################################################
+# the following code is prepared based on https://www.jianshu.com/p/9130e9349e20
+wordcloud2(data = d)
+wordcloud2(data = d, color = "random-light", backgroundColor = "white",shape = 'pentagon')
+# change the shape of the word cloud
+# wordcloud2(data = d, figPath = 'cancer.jpg', size = 1.5)
+# change the shape to letter
+# letterCloud(data = d, word = "R", size = 2)
+
+###############################################################################
+# for Chinese word, please confirm the fileEncoding = ‘utf8’, in case the appearance of unreadable or messy code
+wordcloud2(data, size = 1, shape='cardioid',color = 'random-dark', backgroundColor = "pink",fontFamily = "微软雅黑")
+
+##############################################################################
+# for more detail or verbose examples, please visit:
+# https://zhuanlan.zhihu.com/p/499935064
+# https://bookdown.org/Maxine/tidy-text-mining/
+# https://scholar.harvard.edu/files/jbenchimol/files/text-mining-methodologies.pdf
+# https://blog.csdn.net/gdyflxw/article/details/53535227
+# https://www.jianshu.com/p/806cdccd7a9a
