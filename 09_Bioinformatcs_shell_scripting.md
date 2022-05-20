@@ -156,3 +156,36 @@ find shell -perm 777 -a -atime +5
 4. -group
 5. -nouser
 
+#### find's -exec: running commands on find's results
+```
+find . -name "*-temp.fastq" -exec rm -i {} \;
+```
+
+#### xargs: A Unix powertool
+*xargs* allows us to take input passes to it from standard in, and use this input as *arguments* to another program, which allows us to build commands programmatically from values received through standard in.
+```
+touch zmays{A,C}_R{1,2}-temp.fastq
+find . -name  "*temp.fastq" | xargs rm
+```
+
+One big benefit of xargs is that seperates the process that specifies the files to operate on (find) from applying a command to these files(through xargs). If we wanted to inspect a long list of files returns before running rm on all files in this list, we could use:
+```
+touch zmays{A,C}_R{1,2}-temp.fastq
+find . -name "*-temp.fastq" > files-to-delete.txt
+cat files-to-delete.txt
+cat files-to-delete.txt | xargs rm
+
+# the following script could delete files interactively
+touch zmays{A,C}_R{1,2}-temp.fastq
+find . -name "*-temp.fastq" | xargs -n 1 echo "rm -i" > delete-temp.sh
+cat delete-temp.sh
+bash delet-temp.sh
+```
+
+#### using xargs with replacement strings to apply commands to files
+```
+find . -name "*.fastq" | xargs basename -s ".fastq"
+find . -name "*.fastq" | xargs basename -s ".fastq" | \
+     xargs -I{} fastq_stat --in {}.fastq --out ../summaries/{}.txt
+```
+Combining *xargs* with **basename** is a powerful idiom used to apply commands to many files in a way that keeps track of which output file was created by a particular input files.
