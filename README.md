@@ -42,3 +42,6 @@ Finish bioinformatics data skills
 
 ### 20220520 
 Bioinformatics_data_skills. FINISHED!
+
+### 20220521
+Start Bioinformatics programming using python
