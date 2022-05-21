@@ -25,4 +25,6 @@ an *operator* is a symbol that indicates a calculation usng one or more operands
 - logical operations      
   six comparison operators ==, !=, <, <=, >, >=
 - string operations
-  four binary operators that act on strings: **in, not in, + and * **, and 
+  four binary operators that act on strings: in, not in, + and * , and subscription (extracts character sunstring of a string), sclicing (extracts a series of characters from a string)
+- calls  A call is a kind of expression.
+  function calls. The function is called, does something, then returns a value.
