@@ -26,5 +26,28 @@ an *operator* is a symbol that indicates a calculation usng one or more operands
   six comparison operators ==, !=, <, <=, >, >=
 - string operations:
   four binary operators that act on strings: in, not in, + and * , and subscription (extracts character sunstring of a string), sclicing (extracts a series of characters from a string)
-- calls:  A call is a kind of expression.
-  function calls: The function is called, does something, then returns a value.
+#### calls:  A call is a kind of expression.
+*function calls* The function is called, does something, then returns a value.
+```
+len(arg)
+print()
+input(string)
+abs(value)
+max(args...)
+min(args...)
+str(arg)
+int(arg)
+float(arg)
+bool(arg)
+help()
+```
+*method calls* calling a method is just like calling a function, except taht the first argument goes before the function name, followed by a period.
+```
+string1.count(string2[,start[,end]])
+string1.find(string2[,start[,end]])
+string1.startswith(string2[,start[,end]])
+string1.strip([string2])
+string1.lstrip([string2])
+string1.rstrip([string2])
+```
+#### compound expressions
