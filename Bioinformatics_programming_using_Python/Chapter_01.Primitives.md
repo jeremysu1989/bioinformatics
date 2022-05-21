@@ -21,10 +21,10 @@ logical(Boolean), integer, float, and string
 
 #### expressions
 an *operator* is a symbol that indicates a calculation usng one or more operands. The combination of the operator and its operand is an expression
-- numeriac operators
-- logical operations      
+- numeriac operators:
+- logical operations:      
   six comparison operators ==, !=, <, <=, >, >=
-- string operations
+- string operations:
   four binary operators that act on strings: in, not in, + and * , and subscription (extracts character sunstring of a string), sclicing (extracts a series of characters from a string)
-- calls  A call is a kind of expression.
-  function calls. The function is called, does something, then returns a value.
+- calls:  A call is a kind of expression.
+  function calls: The function is called, does something, then returns a value.
