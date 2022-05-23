@@ -45,3 +45,10 @@ Bioinformatics_data_skills. FINISHED!
 
 ### 20220521
 Start Bioinformatics programming using python
+
+
+### 20220523
+Bioinformatics programing using pyhton chapter3 need to be finished
+
+### 20220524
+Start to learn Chapter4 of BPUP
