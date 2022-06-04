@@ -148,6 +148,8 @@ summary statistics about our plain-text data files.
 #### 打印文件夹下文件的全路径
 ```
 ls -lrt -d -1 "$PWD"/{*,.*}
+ls | sed "s:^:$PWD/:"
+ls | sed "s:^:`pwd`/:"
 realpath filename
 ```
 
