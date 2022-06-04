@@ -201,3 +201,14 @@ You can use this result to generate table
 #### Uploading a file from a local computer to a remote one
     scp /path/to/local/file username@hostname:/path/to/remote/file
     scp /Users/scarecrow/Temp/test/Sars_cov_2.gff3 jsu@192.168.202.180:/data/home/jeremysu/test/
+
+
+## 终端进程管理
+#### 批量终止user下的进程
+```
+ 1609  ps x
+ 1610  ps x|cut -f 1 -d " "
+ 1611  ps x|cut -f 21 -d " "
+ 1612  ps x|cut -f 2 -d " "
+ 1613  kill `ps x|cut -f 2 -d " "|tr "\n" " "`
+ ```
