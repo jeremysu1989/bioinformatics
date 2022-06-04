@@ -145,7 +145,10 @@ summary statistics about our plain-text data files.
     for i in $(awk '{print $3}' CHECKSUMS); do wget -o download.log -bc -P /Users/scarecrow/Temp/test/test_download http://ftp.ensembl.org/pub/release-106/fasta/saccharomyces_cerevisiae/dna/$i; done 
 #### find命令及复制操作
     find . -name "*QC.txt" -exec cp '{}' /target/folder/ \;
-
+#### 打印文件夹下文件的全路径
+```
+ls -lrt -d -1 "$PWD"/{*,.*}
+```
 
 
 ## 文件间操作
