@@ -218,3 +218,13 @@ You can use this result to generate table
  1612  ps x|cut -f 2 -d " "
  1613  kill `ps x|cut -f 2 -d " "|tr "\n" " "`
  ```
+#### 终止用户名下所有进程
+```
+pkill -u jeremysu
+killall -u jeremysu
+```
+#### 依次终止用户名下所有进程
+```
+ps -ef | grep "jeremysu" | awk '{print $2}' | sudo xargs kill -9
+pgrep -u "jeremysu" | sudo xargs kill -9
+```
