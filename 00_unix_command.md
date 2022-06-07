@@ -83,6 +83,10 @@ summary statistics about our plain-text data files.
     awk 'NR==3{for(i=1;i<=NF;i++)sum=sum+$i;}END{print sum}'
 #### awk还有很多自带的函数功能，可以慢慢研究
 
+#### echo输出结果时取消自动换行
+```
+echo -ne $i; # used in iteration
+```
 ---
 
 ### sed在生物信息学数据处理中的常用命令
