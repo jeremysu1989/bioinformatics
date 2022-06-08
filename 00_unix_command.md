@@ -57,7 +57,7 @@ echo $PATH | cut -d ":" -f 2-4,6 | tr ":" "\n"
     grep -v "^#" Sars_cov_2.gtf | cut -f3 | sort | uniq -c | sort -rn
 
 Without having to load data into a program like R or Excel, we can quickly calculate
-summary statistics about our plain-text data files.
+summary  statistics about our plain-text data files.
 
 ---
 
