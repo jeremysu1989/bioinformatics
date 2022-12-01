@@ -1,4 +1,6 @@
 #!/bin/bash
+# give the fastq file after the script name
+
 inputfile=$1
 
 while read line
