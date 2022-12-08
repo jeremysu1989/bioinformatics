@@ -21,18 +21,18 @@ G 移动到末行
 ```
 cut -dS -f3 testfile
 
-#### 替换文本中匹配的最后一个字符
-```
-awk '{print NR,gsub(/T/,"&")}' seq02.txt >index02.txt
-cat index02.txt | while read {i,j}; do sed -i "$i s/T/U/$j" seq02.txt; done
-```
-
 # 读取fastq文件的ID序列，用：进行区域分隔，并输出第4-6和7区域的内容，现实前5行
 bioawk -c fastx '{print $1}' NA12878_R0.fq | cut -d : -f4-6,7 | head -n5
 
 # 将 PATH 变量取出，我要找出第二到第四，还有第六个路径，并分行展示
 echo $PATH | cut -d ":" -f 2-4,6 | tr ":" "\n"
 ```
+#### 替换文本中匹配的最后一个字符
+```
+awk '{print NR,gsub(/T/,"&")}' seq02.txt >index02.txt
+cat index02.txt | while read {i,j}; do sed -i "$i s/T/U/$j" seq02.txt; done
+```
+
 #### 对于空格分隔的文件，选择性的展示某一列
     awk -F " " '{print $2}' testfile
 #### 使用colomn命令实现文本文件的表格化展示，-s参数可以设定分隔字符
