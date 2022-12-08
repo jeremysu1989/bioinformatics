@@ -20,7 +20,13 @@ G 移动到末行
 #### 使用cut命令，结合-d参数指明delimiter character可以进行分割,例如使用大写S作为分割的字符
 ```
 cut -dS -f3 testfile
-    
+
+#### 替换文本中匹配的最后一个字符
+```
+awk '{print NR,gsub(/T/,"&")}' seq02.txt >index02.txt
+cat index02.txt | while read {i,j}; do sed -i "$i s/T/U/$j" seq02.txt; done
+```
+
 # 读取fastq文件的ID序列，用：进行区域分隔，并输出第4-6和7区域的内容，现实前5行
 bioawk -c fastx '{print $1}' NA12878_R0.fq | cut -d : -f4-6,7 | head -n5
 
